@@ -4,38 +4,34 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
 	</head>
 
 	<body>
-
-		<input id="file" type="file" onchange="verify(this.value)" />
-		<br />
 		<div id="" style="max-width: 500px;max-height: 500px;position: relative;">
 			<img id="imgdome" style="max-width: 500px;max-height: 500px;"/>
-			<div style="width: 200px;height: 200px;border: 1px solid #4fb8e3;position: absolute;left: 150px;top: 60px;z-index: 10" id="chooseBox"></div>
+			<div style="width: 200px;height: 200px;border: 1px solid #4fb8e3;position: absolute;left: 0px;top: 0px;z-index: 10" id="chooseBox"></div>
 		</div>
 		
 		<br />
 		<canvas id="myCan" width="100" height="100"></canvas>
 		<canvas id="myCan2" width="55" height="55"></canvas>
 		<button id="btn">保存文件</button>
+		<input id="file" type="file" onchange="verify(this.value)" />
 		<script type="text/javascript">
 			 var can=document.getElementById("myCan");
 			 var ctx=can.getContext("2d");
 			 var can2=document.getElementById("myCan2");
 			 var ctx2=can2.getContext("2d");
 			 var btn=document.getElementById("btn");
+			 var choosebox = document.getElementById("chooseBox");
 			 
 			function verify(val) {
-				/*
-				let imgtype = val.slice(-3)
-				console.log("图片格式" + val.slice(-3))
-				if(imgtype == "jpg" || imgtype == "png") {
-
-				} else {
-					alert("请上传jpg或PNG格式的图片")
-				}*/
 				//
 				var file = document.getElementById("file").files[0];
 				let imgtype = file.type
@@ -52,15 +48,66 @@
 						var ty=document.getElementById("imgdome").naturalHeight;
 						console.log("原始宽"+tx)
 						console.log("原始高"+ty)
-						var img=document.getElementById("imgdome");
-						ctx.drawImage(img,500,220,600,600,0,0,100,100);
-						ctx2.drawImage(img,500,220,600,600,0,0,55,55);
+						//======
+				       	choosebox.onmousedown=function (e) {
+					            var originX= e.offsetX-2;
+					            var originY= e.offsetY;
+					            window.onmousemove=function (e) {
+					            		var evt=e||window.event
+									var x=evt.clientX-originX;
+									var y=evt.clientY-originY;
+									// console.log("clientx"+evt.clientX+"originX"+originX)
+//									console.log("clientY"+evt.clientY+"originY"+originY)
+									if(x<0){
+									    x=0
+									}else if(x>=300){
+									  x=300
+									}
+									if(y<0){
+									   y=0
+									}else if(y>=ty*(500/tx)-200){
+									   y=ty*(500/tx)-200
+									}
+									
+								    choosebox.style.left=x+"px"
+									choosebox.style.top=y+"px"
+									
+					                //
+					                // document.getElementById("css88").style.width
+					                var qx=parseInt(chooseBox.style.left)*tx/500
+					                var qy=parseInt(chooseBox.style.top)*ty/(ty*(500/tx))
+					                // console.log(qx+"qx"+qy)
+					                if(tx>ty){
+										var swidth =tx*2/5;
+										var sheight =ty*(200/(ty*(500/tx)));
+										var img=document.getElementById("imgdome");
+										ctx.drawImage(img,qx,qy,swidth,sheight,0,0,100,100);
+										ctx2.drawImage(img,qx,qy,swidth,sheight,0,0,55,55);
+									}	
+					                //
+					                chooseBox.onmouseout=function () {
+					                    window.onmousemove=null;
+					                    return
+					                }
+					            };
+					            window.onmouseup= function () {
+					                window.onmousemove=null;
+					                return
+					            }
+					        };
+						
+						if(tx>ty){
+							var swidth =tx*2/5;
+							var sheight =ty*(200/(ty*(500/tx)));
+							var img=document.getElementById("imgdome");
+							ctx.drawImage(img,0,0,swidth,sheight,0,0,100,100);
+							ctx2.drawImage(img,0,0,swidth,sheight,0,0,55,55);
+						}	
 			        }
-		       //
 		            function saveFile (fileName, content){
 			            	var aLink = document.createElement('a');
-			            	var evt = document.createEvent("MouseEvents");//MouseEvents
-					    evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+			            	var evt = document.createEvent("MouseEvents");
+					    evt.initEvent("click", false, false);
 					    aLink.download = fileName;
 					    aLink.href = content;
 					    aLink.dispatchEvent(evt);
@@ -68,7 +115,7 @@
 		            btn.onclick=function(){
 			            	var canvas = document.getElementById("myCan");
 			            var dataURL = canvas.toDataURL('png');
-			            var filename = 'baidufe_' + (new Date()).getTime() + '.' + 'png';
+			            var filename = 'oyll' + (new Date()).getTime() + '.' + 'png';
 			            saveFile(filename,dataURL)
 		            }
 		            
