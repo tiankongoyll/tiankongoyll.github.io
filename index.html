@@ -1,54 +1,84 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
+		<title></title>
+
 	</head>
-	<style type="text/css">
-		div{
-			margin: 0 auto;
-			width: 200px;
-			height: 50px;
-			background: red;
-		}
-	</style>
+
 	<body>
-			<div id="checkall">
-				我要测试一下
-			</div>
-			<div id="checkall2">
-				测试成功
-			</div>
-			<div id="checkall">
-				我要测试一下
-			</div>
-			<div id="checkall2">
-				测试成功
-			</div>
-			<div id="checkall">
-				我要测试一下
-			</div>
-			<div id="checkall2">
-				测试成功
-			</div>
-			<div id="checkall">
-				我要测试一下
-			</div>
-			<div id="checkall2">
-				测试成功
-			</div>
-			<div id="checkall">
-				我要测试一下
-			</div>
-			<div id="checkall2">
-				测试成功
-			</div>
-			<div id="checkall">
-				我要测试一下
-			</div>
-			<div id="checkall2">
-				测试成功
-			</div>
+
+		<input id="file" type="file" onchange="verify(this.value)" />
+		<br />
+		<div id="" style="max-width: 500px;max-height: 500px;position: relative;">
+			<img id="imgdome" style="max-width: 500px;max-height: 500px;"/>
+			<div style="width: 200px;height: 200px;border: 1px solid #4fb8e3;position: absolute;left: 150px;top: 60px;z-index: 10" id="chooseBox"></div>
+		</div>
+		
+		<br />
+		<canvas id="myCan" width="100" height="100"></canvas>
+		<canvas id="myCan2" width="55" height="55"></canvas>
+		<button id="btn">保存文件</button>
+		<script type="text/javascript">
+			 var can=document.getElementById("myCan");
+			 var ctx=can.getContext("2d");
+			 var can2=document.getElementById("myCan2");
+			 var ctx2=can2.getContext("2d");
+			 var btn=document.getElementById("btn");
+			 
+			function verify(val) {
+				/*
+				let imgtype = val.slice(-3)
+				console.log("图片格式" + val.slice(-3))
+				if(imgtype == "jpg" || imgtype == "png") {
+
+				} else {
+					alert("请上传jpg或PNG格式的图片")
+				}*/
+				//
+				var file = document.getElementById("file").files[0];
+				let imgtype = file.type
+				console.log("图片格式:"+imgtype)
+				if(imgtype == "image/jpeg" || imgtype == "image/png") {
+					var reader = new FileReader();
+					reader.onload= function (e) {
+		                document.getElementById('imgdome').setAttribute('src', e.target.result);
+		            };
+		            reader.readAsDataURL(file);
+		            //
+		            document.getElementById("imgdome").onload =function() {
+			            var tx=document.getElementById("imgdome").naturalWidth;
+						var ty=document.getElementById("imgdome").naturalHeight;
+						console.log("原始宽"+tx)
+						console.log("原始高"+ty)
+						var img=document.getElementById("imgdome");
+						ctx.drawImage(img,500,220,600,600,0,0,100,100);
+						ctx2.drawImage(img,500,220,600,600,0,0,55,55);
+			        }
+		       //
+		            function saveFile (fileName, content){
+			            	var aLink = document.createElement('a');
+			            	var evt = document.createEvent("MouseEvents");//MouseEvents
+					    evt.initEvent("click", false, false);//initEvent 不加后两个参数在FF下会报错, 感谢 Barret Lee 的反馈
+					    aLink.download = fileName;
+					    aLink.href = content;
+					    aLink.dispatchEvent(evt);
+		            }
+		            btn.onclick=function(){
+			            	var canvas = document.getElementById("myCan");
+			            var dataURL = canvas.toDataURL('png');
+			            var filename = 'baidufe_' + (new Date()).getTime() + '.' + 'png';
+			            saveFile(filename,dataURL)
+		            }
+		            
+				} else {
+					alert("请上传jpg或PNG格式的图片")
+				}
+
+			}
+			
+		</script>
 	</body>
 
 </html>
