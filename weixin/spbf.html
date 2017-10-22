@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			li {
+				list-style: none;
+				float: left;
+				width: 70px;
+				height: 40;
+				margin: 5px;
+				line-height: 40px;
+				text-align: center;
+				border: 1px solid #ccc;
+				background: #E8E8E8;
+				font-size: 12px;
+			}
+			
+			ul {
+				width: 900px;
+				height: 50px;
+				margin: 0 auto;
+			}
+			
+			.vid {
+				margin: 0 auto;
+				width: 800px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li>获取</li>
+			<li>播放</li>
+			<li>暂停</li>
+			<li>100%</li>
+			<li>75%</li>
+			<li>50%</li>
+			<li>快进</li>
+			<li>快退</li>
+			<li>从头播放</li>
+			<li>静音/恢复</li>
+
+		</ul>
+		<div class="vid">
+			<video id="vid" width="800" height="" controls>
+				<source src="video/picture.mp4" type="video/mp4"></source>
+
+			</video>
+		</div>
+		<div id="show">
+  
+		</div>
+		<script>
+			var oli = document.getElementsByTagName('li')
+			var ovid = document.getElementById("vid")
+			var oshow = document.getElementById("show")
+			var a=true
+			oli[0].onclick = function() {
+				var b=ovid.duration
+			    var c=ovid.currentTime
+			    var d=ovid.paused
+			    if(d){
+			    	var e='暂停中'
+			    }else{
+			    	e='播放中'
+			    }
+			    oshow.innerHTML='总时长是：'+b+'<br>当前时长：'+c+'<br>当前播放状态：'+e
+			}
+			oli[1].onclick = function() {
+				ovid.play()//播放
+			}
+			oli[2].onclick = function() {
+				ovid.pause();//暂停
+			}
+			oli[3].onclick = function() {
+				ovid.style.width='1000px'
+			}
+			oli[4].onclick = function() {
+				ovid.style.width='800px'
+			}
+			oli[5].onclick = function() {
+				ovid.style.width='700px'
+			}
+			oli[6].onclick = function() {
+				ovid.currentTime+=10
+			}
+			oli[7].onclick = function() {
+				ovid.currentTime-=10
+			}
+			oli[8].onclick = function() {
+				ovid.load()
+				ovid.play()
+			}
+			oli[9].onclick = function() {
+				if(a){
+					ovid.muted=true
+					a=false
+				}else{
+					ovid.muted=false
+					a=true
+				}
+			}
+		</script>
+	</body>
+
+</html>

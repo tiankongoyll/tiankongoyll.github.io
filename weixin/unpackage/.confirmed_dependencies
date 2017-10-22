@@ -1,0 +1,47 @@
+{
+  "soyoung.html": {
+    "resources": [
+      "img/foot3.png",
+      "img/series1.png",
+      "img/soyoung.png",
+      "video/picture.mp4",
+      "img/series4.png",
+      "img/leftsquare.png",
+      "img/shzy.png",
+      "img/series3.png",
+      "css/soyoung.css",
+      "img/shdc.png",
+      "img/series1-1.png",
+      "css/common.css",
+      "img/heard.jpg",
+      "img/foot2.png",
+      "img/foot4.png",
+      "img/series2.png",
+      "img/wanke.png",
+      "img/foot1.png",
+      "img/foot.jpg",
+      "img/rightsquare.png"
+    ],
+    "refer": []
+  },
+  "nursing.html": {
+    "href": "nursing.html",
+    "resources": [
+      "css/common.css",
+      "css/nursing.css",
+      "img/n-foot.jpg",
+      "img/n-back.jpg"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [],
+    "refer": [
+      "soyoung.html",
+      "nursing.html"
+    ],
+    "priority": 0
+  }
+}
