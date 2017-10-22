@@ -15,7 +15,7 @@
 		</header>
 		<div class="vid withm">
 			<video id="vid" width="690" height="" controls autoplay="autoplay">
-				<source src="video/picture.mp4" type="video/mp4"></source>
+				<!--<source src="video/picture.mp4" type="video/mp4"></source>-->
 			</video>
 		</div>
 		<div class="company Mauto withm">
@@ -246,7 +246,8 @@
 					console.log("2222")
 					var timer2 = setInterval(function() {
 						var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-						document.documentElement.scrollTop = document.body.scrollTop -= 10;
+						document.documentElement.scrollTop -= 10;
+						document.body.scrollTop -= 10;
 						if(scrollTop < pageHeight * (nam1) + 15 && scrollTop > pageHeight * (nam1) - 15) {
 							huadong = true;
 							clearInterval(timer2)
