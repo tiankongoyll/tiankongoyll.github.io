@@ -7,5 +7,5 @@ mui("#bodym").on('swipeup', '.mmain', function() {
 			  }, 1000 )
 //alert("ss")
 
-alert($(".mmain").css("marginTop")
+alert(parseInt($(".mmain").css("marginTop")))
 			})
