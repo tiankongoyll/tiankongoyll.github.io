@@ -1,4 +1,10 @@
-
+html,body{
+	height: 100%;
+	overflow: hidden;
+}
+.mmain{
+	/*height: 100%;*/
+}
 header img{
 	width: 750px;
 }
