@@ -246,8 +246,8 @@
 					console.log("2222")
 					var timer2 = setInterval(function() {
 						var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-						document.documentElement.scrollTop -= 10;
-						document.body.scrollTop -= 10;
+						document.documentElement.scrollTop = document.documentElement.scrollTop-10;
+						document.body.scrollTop = document.body.scrollTop-10;
 						if(scrollTop < pageHeight * (nam1) + 15 && scrollTop > pageHeight * (nam1) - 15) {
 							huadong = true;
 							clearInterval(timer2)
