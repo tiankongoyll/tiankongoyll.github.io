@@ -235,8 +235,11 @@
 							document.documentElement.scrollTop += 10;
 							document.body.scrollTop += 10;
 							if((scrollTop > pageHeight * (nam1 + 1) - 15 && scrollTop < pageHeight * (nam1 + 1) + 15) || scrollTop >= bordyclientHeight - pageHeight - 10) {
-								huadong = true;
+//								huadong = true;
+
 								clearInterval(timer)
+								setTimeout("huadong = true)",1000)
+								
 							}
 						}, 5
 					)
@@ -250,8 +253,10 @@
 						document.documentElement.scrollTop = document.documentElement.scrollTop-10;
 						document.body.scrollTop = document.body.scrollTop-10;
 						if(scrollTop < pageHeight * (nam1) + 15 && scrollTop > pageHeight * (nam1) - 15) {
-							huadong = true;
+//							huadong = true;
 							clearInterval(timer2)
+								setTimeout("huadong = true)",1000)
+							
 						}
 					}, 5)
 				}
