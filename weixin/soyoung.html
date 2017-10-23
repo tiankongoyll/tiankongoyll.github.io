@@ -226,7 +226,7 @@
 				var nam2 = nam1 * pageHeight;
 				var nam3 = pageHeight / 2;
 				var nam4 = pageHeight * nam1 + 200
-				if(scrollTop - nam2 > 200 && scrollTop - nam2 < 400 && huadong && scrollTop < (parseInt(bordyclientHeight / pageHeight) - 1) * pageHeight) {
+				if(scrollTop - nam2 > 50 && scrollTop - nam2 < 100 && huadong && scrollTop < (parseInt(bordyclientHeight / pageHeight) - 1) * pageHeight) {
 					huadong = false;
 					console.log("11111")
 					var timer = setInterval(
@@ -241,7 +241,7 @@
 						}, 5
 					)
 				}
-				if(scrollTop < (nam1 + 1) * pageHeight - 200 && scrollTop > (nam1 + 1) * pageHeight - 250 && huadong) {
+				if(scrollTop < (nam1 + 1) * pageHeight - 50 && scrollTop > (nam1 + 1) * pageHeight - 100 && huadong) {
 					huadong = false;
 					console.log("2222")
 //					alert("2")
