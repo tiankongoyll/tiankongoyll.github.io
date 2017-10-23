@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<style>
+body{height:5000px;}
+input{ position:fixed;right:20px;bottom:50px; display:none;}
+</style>
+
+</head>
+<body>
+<input type="button" value="回到顶部"/>
+
+
+<script>
+window.onscroll=function(){
+	var pageWidth = window.innerWidth,
+				pageHeight = window.innerHeight;
+				console.log(pageHeight)
+	
+	
+	
+	//
+   var but=document.getElementsByTagName("input")[0];
+   var scrollTop = document.documentElement.scrollTop  || document.body.scrollTop;
+   if(scrollTop>200){
+	      but.style.display="block";
+	  }
+	but.onclick=function(){
+
+	   var timer=setInterval(
+	       function(){
+		      var scrollTop = document.documentElement.scrollTop  || document.body.scrollTop;
+
+			  var ppp=scrollTop/5;
+
+			  document.documentElement.scrollTop = document.body.scrollTop -=ppp;
+		     if(scrollTop<=0){
+			    clearInterval(timer)
+			 }
+		   },10
+	   )
+	
+	} 
+}
+ 
+
+
+</script>
+
+</body>
+
+</html>
