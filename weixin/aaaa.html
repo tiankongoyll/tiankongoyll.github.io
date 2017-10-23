@@ -6,7 +6,7 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
-		<link rel="stylesheet" type="text/css" href="css/soyoung.css" />
+		<link rel="stylesheet" type="text/css" href="css/aaa.css" />
 		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquary.js" type="text/javascript" charset="utf-8"></script>
 	</head>
@@ -222,53 +222,53 @@
 			}
 			//滑动翻屏
 			
-			var huadong = true;
-			window.onscroll = function() {
-				var pageWidth = window.innerWidth,
-					pageHeight = window.innerHeight,
-					bordyclientHeight = document.getElementById("bodym").clientHeight * document.documentElement.clientWidth / 750;
-				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-				var nam1 = parseInt(scrollTop / pageHeight);
-				var nam2 = nam1 * pageHeight;
-				var nam3 = pageHeight / 2;
-				var nam4 = pageHeight * nam1 + 200
-				if(scrollTop - nam2 > 50 && scrollTop - nam2 < 100 && huadong && scrollTop < (parseInt(bordyclientHeight / pageHeight) - 1) * pageHeight) {
-					huadong = false;
-					console.log("11111")
-					var timer = setInterval(
-						function() {
-							var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-							document.documentElement.scrollTop += 10;
-							document.body.scrollTop += 10;
-							if((scrollTop > pageHeight * (nam1 + 1) - 15 && scrollTop < pageHeight * (nam1 + 1) + 15) || scrollTop >= bordyclientHeight - pageHeight - 10) {
-								huadong = true;
-
-								clearInterval(timer)
-//								setTimeout("huadong = true",500)
-								
-							}
-						}, 5
-					)
-				}
-				if(scrollTop < (nam1 + 1) * pageHeight - 50 && scrollTop > (nam1 + 1) * pageHeight - 100 && huadong) {
-					huadong = false;
-					console.log("2222")
-//					alert("2")
-					var timer2 = setInterval(function() {
-						var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-						document.documentElement.scrollTop = document.documentElement.scrollTop-10;
-						document.body.scrollTop = document.body.scrollTop-10;
-						if(scrollTop < pageHeight * (nam1) + 15 && scrollTop > pageHeight * (nam1) - 15) {
-							huadong = true;
-							clearInterval(timer2)
-//								setTimeout("huadong = true",500)
-							
-						}
-					}, 5)
-				}
-			}
+//			var huadong = true;
+//			window.onscroll = function() {
+//				var pageWidth = window.innerWidth,
+//					pageHeight = window.innerHeight,
+//					bordyclientHeight = document.getElementById("bodym").clientHeight * document.documentElement.clientWidth / 750;
+//				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//				var nam1 = parseInt(scrollTop / pageHeight);
+//				var nam2 = nam1 * pageHeight;
+//				var nam3 = pageHeight / 2;
+//				var nam4 = pageHeight * nam1 + 200
+//				if(scrollTop - nam2 > 50 && scrollTop - nam2 < 100 && huadong && scrollTop < (parseInt(bordyclientHeight / pageHeight) - 1) * pageHeight) {
+//					huadong = false;
+//					console.log("11111")
+//					var timer = setInterval(
+//						function() {
+//							var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//							document.documentElement.scrollTop += 10;
+//							document.body.scrollTop += 10;
+//							if((scrollTop > pageHeight * (nam1 + 1) - 15 && scrollTop < pageHeight * (nam1 + 1) + 15) || scrollTop >= bordyclientHeight - pageHeight - 10) {
+//								huadong = true;
+//
+//								clearInterval(timer)
+////								setTimeout("huadong = true",500)
+//								
+//							}
+//						}, 5
+//					)
+//				}
+//				if(scrollTop < (nam1 + 1) * pageHeight - 50 && scrollTop > (nam1 + 1) * pageHeight - 100 && huadong) {
+//					huadong = false;
+//					console.log("2222")
+////					alert("2")
+//					var timer2 = setInterval(function() {
+//						var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+//						document.documentElement.scrollTop = document.documentElement.scrollTop-10;
+//						document.body.scrollTop = document.body.scrollTop-10;
+//						if(scrollTop < pageHeight * (nam1) + 15 && scrollTop > pageHeight * (nam1) - 15) {
+//							huadong = true;
+//							clearInterval(timer2)
+////								setTimeout("huadong = true",500)
+//							
+//						}
+//					}, 5)
+//				}
+//			}
 		</script>
-		<!--<script src="js/aaa.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="js/aaa.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 
 </html>
