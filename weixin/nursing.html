@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>申养康复医院</title>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2A7aNxfGZYPLcNk8tc4q4Grq24QadpIW"></script>
+
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="css/nursing.css"/>
 	</head>
@@ -66,6 +66,8 @@
 				bodyScale();
 			}
 		</script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2A7aNxfGZYPLcNk8tc4q4Grq24QadpIW"></script>
+		
 		<script type="text/javascript">
 			// 百度地图API功能
 			var map = new BMap.Map("allmap");
@@ -79,11 +81,47 @@
 					map.addOverlay(mk);
 					map.panTo(r.point);
 //					alert('您的位置：'+r.point.lng+','+r.point.lat);
+					////*********覆盖图标文字
+					var pt = new BMap.Point(121.48789949,31.24916171);
+					var myIcon = new BMap.Icon("img/n-covering.png", new BMap.Size(300,255));
+					var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+					map.addOverlay(marker2);              // 将标注添加到地图中
+					
+					var pt3 = new BMap.Point(121.48789949,31.24916171);
+					var myIcon3 = new BMap.Icon("img/n-covering.png", new BMap.Size(600,155));
+					var marker3 = new BMap.Marker(pt3,{icon:myIcon3});  // 创建标注
+					map.addOverlay(marker3); 
+
+					//*******************点击事件
+					function showInfo(e){
+					//		alert(e.point.lng + ", " + e.point.lat);
+					alert("获取数据切换展示内容")
+					}
+					map.addEventListener("click", showInfo);
+					//添加文字
+//					var point = new BMap.Point(121.48789949,31.24916171);
+//					map.centerAndZoom(point, 15);
+//					var opts = {
+//					  position : point,    // 指定文本标注所在的地理位置
+//					  offset   : new BMap.Size(30, -30)    //设置文本偏移量
+//					}
+//					var label = new BMap.Label("浦江申养医院", opts);  // 创建文本标注对象
+//						label.setStyle({
+//							 color : "#cccccc",
+//							 fontSize : "12px",
+//							 height : "40px",
+//							 lineHeight : "40px",
+//							 fontFamily:"微软雅黑"
+//						});
+//						map.addOverlay(label);
+					
+					///
 				}
 				else {
 //					alert('failed'+this.getStatus());
 				}        
 			},{enableHighAccuracy: true})
+			
 			//关于状态码
 			//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
 			//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
