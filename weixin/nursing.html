@@ -7,6 +7,8 @@
 
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<link rel="stylesheet" type="text/css" href="css/nursing.css"/>
+		<script src="../fitness/js/jquary.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2A7aNxfGZYPLcNk8tc4q4Grq24QadpIW"></script>
 	</head>
 	<body>
 		<header>
@@ -14,10 +16,39 @@
 				
 			</div>
 		</header>
-		<div class="company Mauto withm">
+		<div id="company1" class="company Mauto withm" style="display: none;">
 			<div class="company-h">
 				<div class="company-h-t textC">
 					<b>浦江申养康复医院</b>
+					<br />
+					<span>PUJIANGSHENYANGKANGFUYIYUAN</span>
+				</div>
+			</div>
+			<div class="company-c">
+				<div class="picl fl">
+					<img class="width100" src="img/n-back.jpg"/>
+				</div>
+				<div class="picr fr">
+					<h3>浦江申养康复医院</h3>
+					<span>代表</span>
+					<br />
+					<span>项目</span>
+				</div>
+			</div>
+				
+			<p>目前，申养公司已有城花智汇坊、古美智汇坊、川北智汇坊、虹梅智汇坊四家社区嵌入中心在运营，镇坪路望年荟养老照护机构、安亭澜悦长者公寓2017年投入运营。同时，正在筹备中的社区嵌入中心、照护机构、长者公寓、康复护理院等各类机构20多家，遍布上海主要中心城区。预计到2017年，公司运营管理养老床位数将超过3000张。</p>
+		    <div class="foot">
+		    	<img src="img/n-foot.jpg"/>
+		    </div>
+		    <p>项目位于上海闵行区浦江世博家园地块，建筑面积约2万㎡，是一家以中医传统康复治疗为特色的二级康复医院。</p>
+		    <div class="end Mauto textC">
+		    	End
+		    </div>
+		</div>
+		<div id="company2" class="company Mauto withm" style="display: none;">
+			<div class="company-h">
+				<div class="company-h-t textC">
+					<b>滨江澜悦</b>
 					<br />
 					<span>PUJIANGSHENYANGKANGFUYIYUAN</span>
 				</div>
@@ -66,7 +97,7 @@
 				bodyScale();
 			}
 		</script>
-		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2A7aNxfGZYPLcNk8tc4q4Grq24QadpIW"></script>
+		
 		
 		<script type="text/javascript">
 			// 百度地图API功能
@@ -82,23 +113,38 @@
 					map.panTo(r.point);
 //					alert('您的位置：'+r.point.lng+','+r.point.lat);
 					////*********覆盖图标文字
-					var pt = new BMap.Point(121.48789949,31.24916171);
-					var myIcon = new BMap.Icon("img/n-covering.png", new BMap.Size(300,255));
+					var pt = new BMap.Point(121.48789949,31.24916151);
+					var myIcon = new BMap.Icon("img/n-covering.png", new BMap.Size(300,157));
 					var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
 					map.addOverlay(marker2);              // 将标注添加到地图中
 					
-					var pt3 = new BMap.Point(121.48789949,31.24916171);
-					var myIcon3 = new BMap.Icon("img/n-covering.png", new BMap.Size(600,155));
+					var pt3 = new BMap.Point(121.452745,31.294826);
+					var myIcon3 = new BMap.Icon("img/n-covering.png", new BMap.Size(300,157));
 					var marker3 = new BMap.Marker(pt3,{icon:myIcon3});  // 创建标注
 					map.addOverlay(marker3); 
 
 					//*******************点击事件
 					function showInfo(e){
+						$("#company2").hide()
+						$("#company1").show("slow");
 					//		alert(e.point.lng + ", " + e.point.lat);
-					alert("获取数据切换展示内容")
+//					alert("获取数据切换展示内容")
+					}
+					function showInfo2(e){
+						$("#company1").hide();
+						$("#company2").show("slow");
+					//		alert(e.point.lng + ", " + e.point.lat);
+//					alert("获取数据切换展示内容")
+					}
+					function showInfo3(e){
+//						$("#company1").hide();
+//						$("#company2").show("slow");
+							alert(e.point.lng + ", " + e.point.lat);
+//					alert("获取数据切换展示内容")
 					}
 					marker2.addEventListener("click", showInfo);
-					marker3.addEventListener("click", showInfo);
+					marker3.addEventListener("click", showInfo2);
+//					map.addEventListener("click", showInfo3);
 					//添加文字
 //					var point = new BMap.Point(121.48789949,31.24916171);
 //					map.centerAndZoom(point, 15);
@@ -122,17 +168,6 @@
 //					alert('failed'+this.getStatus());
 				}        
 			},{enableHighAccuracy: true})
-			
-			//关于状态码
-			//BMAP_STATUS_SUCCESS	检索成功。对应数值“0”。
-			//BMAP_STATUS_CITY_LIST	城市列表。对应数值“1”。
-			//BMAP_STATUS_UNKNOWN_LOCATION	位置结果未知。对应数值“2”。
-			//BMAP_STATUS_UNKNOWN_ROUTE	导航结果未知。对应数值“3”。
-			//BMAP_STATUS_INVALID_KEY	非法密钥。对应数值“4”。
-			//BMAP_STATUS_INVALID_REQUEST	非法请求。对应数值“5”。
-			//BMAP_STATUS_PERMISSION_DENIED	没有权限。对应数值“6”。(自 1.1 新增)
-			//BMAP_STATUS_SERVICE_UNAVAILABLE	服务不可用。对应数值“7”。(自 1.1 新增)
-			//BMAP_STATUS_TIMEOUT	超时。对应数值“8”。(自 1.1 新增)
 		</script>
 	</body>
 </html>
