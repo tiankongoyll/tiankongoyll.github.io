@@ -10,12 +10,12 @@
 			console.log("上移")
 			$(".mmain").animate({
 				marginTop: parseInt($(".mmain").css("marginTop")) - pageHeight
-			}, 1000)
+			}, 500)
 		}else{
 			console.log("上移置顶")
 			$(".mmain").animate({
 				marginTop: -nam+pageHeight
-			}, 1000)
+			}, 500)
 		}
 	})
 	mui("#bodym").on('swipedown', '.mmain', function() {
@@ -28,12 +28,12 @@
 			console.log("下滑")
 			$(".mmain").animate({
 				marginTop: parseInt($(".mmain").css("marginTop")) + pageHeight
-			}, 1000)
+			}, 500)
 		}else{
 			console.log("下滑置顶")
 			$(".mmain").animate({
 				marginTop: 0
-			}, 1000)
+			}, 500)
 		}
 	})
 //}
