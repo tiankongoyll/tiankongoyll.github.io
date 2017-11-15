@@ -29,10 +29,11 @@
 			// 构造最终请求的 url
 			var url = API + "?location=" + LOCATION + "&" + str + "&callback=?";
 			// 直接发送请求进行调用，手动处理回调函数
+			alert("jj")
 			$.getJSON(url, function(data) {
 				var obj = document.getElementById('content');
 				var weather = data.results[0];
-				console.log(JSON.stringify(weather))
+				alert(JSON.stringify(weather))
 //				var text = [];
 //				text.push("Location: " + weather.location.path);
 //				text.push("Weather: " + weather.now.text);
