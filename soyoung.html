@@ -7,17 +7,23 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/soyoung.css" />
+		<script type="text/javascript">
+			function bodyScale() {
+				var devicewidth = document.documentElement.clientWidth;
+				var scale = devicewidth / 750;
+				document.body.style.zoom = scale;
+			}
+			window.onload = window.onresize = function() {
+				bodyScale();
+			}
+		</script>
 	</head>
 
 	<body id="bodym">
 		<header>
 			<img src="img/heard.jpg" />
 		</header>
-		<!-- <div class="vid withm">
-			<video id="vid" width="690" height="" controls autoplay="autoplay">
-				<source src="video/picture.mp4" type="video/mp4"></source>
-			</video>
-		</div> -->
+		
 		<div class="company Mauto withm">
 			<div class="company-h">
 				<div class="company-h-t textC">
@@ -207,14 +213,14 @@
 		</div>
 
 		<script type="text/javascript">
-			function bodyScale() {
-				var devicewidth = document.documentElement.clientWidth;
-				var scale = devicewidth / 750;
-				document.body.style.zoom = scale;
-			}
-			window.onload = window.onresize = function() {
-				bodyScale();
-			}
+			// function bodyScale() {
+			// 	var devicewidth = document.documentElement.clientWidth;
+			// 	var scale = devicewidth / 750;
+			// 	document.body.style.zoom = scale;
+			// }
+			// window.onload = window.onresize = function() {
+			// 	bodyScale();
+			// }
 			//滑动翻屏
 			/*
 			var huadong = true;
