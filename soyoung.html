@@ -13,6 +13,7 @@
 		<header>
 			<img src="img/heard.jpg" />
 		</header>
+		
 		<div class="company Mauto withm">
 			<div class="company-h">
 				<div class="company-h-t textC">
@@ -201,54 +202,7 @@
 			</div>
 		</div>
 
-		<script type="text/javascript">
-			function bodyScale() {
-				var devicewidth = document.documentElement.clientWidth;
-				var scale = devicewidth / 750;
-				document.body.style.zoom = scale;
-			}
-			window.onload = window.onresize = function() {
-				bodyScale();
-			}
-			//滑动翻屏
-			/*
-			var huadong = true;
-			window.onscroll = function() {
-				var pageWidth = window.innerWidth,
-					pageHeight = window.innerHeight,
-					bordyclientHeight = document.getElementById("bodym").clientHeight * document.documentElement.clientWidth / 750;
-				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-				var nam1 = parseInt(scrollTop / pageHeight);
-				var nam2 = nam1 * pageHeight;
-				var nam3 = pageHeight / 2;
-				var nam4 = pageHeight * nam1 + 200
-				if(scrollTop - nam2 > 200 && scrollTop - nam2 < 400 && huadong && scrollTop < (parseInt(bordyclientHeight / pageHeight) - 1) * pageHeight) {
-					huadong = false;
-					var timer = setInterval(
-						function() {
-							var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-							document.documentElement.scrollTop = document.body.scrollTop += 10;
-							if((scrollTop > pageHeight * (nam1 + 1) - 15 && scrollTop < pageHeight * (nam1 + 1) + 15) || scrollTop >= bordyclientHeight - pageHeight - 10) {
-								huadong = true;
-								clearInterval(timer)
-							}
-						}, 5
-					)
-				}
-				if(scrollTop < (nam1 + 1) * pageHeight - 200 && scrollTop > (nam1 + 1) * pageHeight - 250 && huadong) {
-					huadong = false;
-					var timer2 = setInterval(function() {
-						var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-						document.documentElement.scrollTop = document.body.scrollTop -= 10;
-						if(scrollTop < pageHeight * (nam1) + 15 && scrollTop > pageHeight * (nam1) - 15) {
-							huadong = true;
-							clearInterval(timer2)
-						}
-					}, 5)
-				}
-			}
-			*/
-		</script>
+		
 	</body>
 
 </html>
