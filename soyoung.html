@@ -7,16 +7,6 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/common.css" />
 		<link rel="stylesheet" type="text/css" href="css/soyoung.css" />
-		<script type="text/javascript">
-			// function bodyScale() {
-			// 	var devicewidth = document.documentElement.clientWidth;
-			// 	var scale = devicewidth / 750;
-			// 	document.body.style.zoom = scale;
-			// }
-			
-			// bodyScale();
-		
-		</script>
 	</head>
 
 	<body id="bodym">
@@ -222,14 +212,14 @@
 		</div>
 
 		<script type="text/javascript">
-			// function bodyScale() {
-			// 	var devicewidth = document.documentElement.clientWidth;
-			// 	var scale = devicewidth / 750;
-			// 	document.body.style.zoom = scale;
-			// }
-			// window.onload = window.onresize = function() {
-			// 	bodyScale();
-			// }
+			function bodyScale() {
+				var devicewidth = document.documentElement.clientWidth;
+				var scale = devicewidth / 750;
+				document.body.style.zoom = scale;
+			}
+			window.onload = window.onresize = function() {
+				bodyScale();
+			}
 			//滑动翻屏
 			/*
 			var huadong = true;
