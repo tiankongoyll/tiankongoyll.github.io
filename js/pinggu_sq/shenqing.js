@@ -3,19 +3,14 @@ var main = new Vue({
 	data: {
 		idCard: "oorder20171226",
 		adress: "上海徐汇",
-		yizhi: false,
-		user:JSON.parse(localStorage.user_info||'{}'),
+		yizhi: false
 	},
 	methods: {
 		yuedu: function() {
 			this.yizhi = !this.yizhi
 		},
 		tijiao: function() {
-			if(this.yizhi){
-				qingqiu()
-			}else{
-				log_message("请勾选申请须知")
-			}
+			qingqiu()
 		}
 	}
 })
@@ -28,9 +23,12 @@ function qingqiu() {
 			"address": main.adress
 		},
 		function(data) {
-			log_message(data.message)
-			setTimeout("window.history.go(-1)",1000)
+			console.log(data)
+			alert("提交完成")
+			window.history.go(-1)
 		}
 	)
+//	alert("提交完成")
+//	window.history.go(-1)
 }
 

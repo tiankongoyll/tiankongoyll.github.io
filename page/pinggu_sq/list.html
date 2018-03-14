@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>评估列表</title>
-		<link rel="stylesheet" type="text/css" href="../../css/pinggu_sq/list.css" />
+		<!--<script src="../../js/mui.min.js"></script>-->
+    		<!--<link href="../../css/mui.min.css" rel="stylesheet"/>-->
+    		<link rel="stylesheet" type="text/css" href="../../css/pinggu_sq/list.css"/>
 	</head>
-
 	<body>
 		<header class="positionR colorF height7">
-			<img src="../../img/pinggu_sq/03.png" onclick="window.history.go(-1)" />
+			<img src="../../img/pinggu_sq/03.png" onclick="window.history.go(-1)"/>
 			<div class="height30"></div>
 			<div class="textC font1-4">评估列表</div>
 		</header>
-		<div id="main" class="width100 height86 overflowA none" ref="mybox" v-on:scroll.passive="onScroll('mybox')">
+		<div id="main" class="width100 height86 overflowA">
 			<div class="list" v-if="response.length">
-				<ul class="PB10">
+				<ul>
 					<li class="width90 Mauto overflowH radius10P MT20" v-for="item in response">
-						<div class="top font1-4 PL20 LH3 oneline">
+						<div class="top font1-4 PL20 LH3">
 							评估编号：{{item.workId}}
 						</div>
-						<div class="chenter PL10 PR10" @click="openurl(item.workId)">
-							<p class="font1-4 LH3" v-if="item.workStatus!=0"><img class="headimg" v-bind:src="item.workerIcon||'../../img/pinggu_sq/06.png'" />评估员：{{item.workerName}}&nbsp;&nbsp;<img class="xingbie" src="../../img/pinggu_sq/07.png" v-if="item.workerGender == '2'" /><img class="xingbie" src="../../img/pinggu_sq/08.png" v-else/></p>
-							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/04.png" />&nbsp;&nbsp;联系电话：{{item.workerPhone}}</p>
-							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/05.png" />&nbsp;&nbsp;评估申请时间：{{item.applicationTime}}</p>
+						<div class="chenter PL10 PR10">
+							<p class="font1-4 LH3" v-if="item.workStatus!=1"><img class="headimg" v-bind:src="item.workerIcon"/>评估员：{{item.workerName}}&nbsp;&nbsp;<img class="xingbie" src="../../img/pinggu_sq/07.png" v-if="item.workerGender == '女'"/><img class="xingbie" src="../../img/pinggu_sq/08.png" v-else/></p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/04.png"/>&nbsp;&nbsp;联系电话：{{item.workerPhone}}</p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/05.png"/>&nbsp;&nbsp;评估申请时间：{{item.acceptTime}}</p>
 							<div class="bord"></div>
 							<div class="">
-								<button class="chakan fr PB5 PT5 PL20 PR20 MT10 MB10 MR15 radius5P">查看</button>
+								<button class="chakan fr PB5 PT5 PL20 PR20 MT10 MB10 MR15 radius5P" onclick="window.location.href='chakan.html'">查看</button>
 							</div>
 						</div>
 					</li>
 				</ul>
-				<p class="textC LH2 PB20">{{loading}}</p>
 			</div>
 			<div class="nolist width100 height100 textC" v-else>
-				<div class="height30"></div>
-				<img src="../../img/pinggu_sq/02.png" />
-				<div class="colorC PT10 font1-4">暂时没有评估列表</div>
+				<div class="height30">
+					
+				</div>
+			  <img src="../../img/pinggu_sq/02.png"/>
+			  <div class="colorC PT10 font1-4">暂时没有评估列表</div>
 			</div>
 		</div>
-		<footer class="width100" onclick="window.location.href='shenqing.html'">
+		<footer class="width100 height7" onclick="window.location.href='shenqing.html'">
 			<div class="textC PT10 PB10 colorF font1-4">
-				<img src="../../img/pinggu_sq/01.png" />&nbsp;申请评估
+				<img src="../../img/pinggu_sq/01.png"/>&nbsp;申请评估
 			</div>
 		</footer>
 		<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -50,5 +51,4 @@
 		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/pinggu_sq/list.js" type="text/javascript" charset="utf-8"></script>
 	</body>
-
 </html>

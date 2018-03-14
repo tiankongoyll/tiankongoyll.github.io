@@ -1,7 +1,15 @@
 @import url("../common.css");
+header {
+  background: #698af3; }
+  header img {
+    height: 1.5rem;
+    position: absolute;
+    top: 30%;
+    left: 10px; }
+
 #main .list li {
   background: #FFFFFF;
-  box-shadow: 0px 0px 20px #e6eaf2; }
+  box-shadow: 0px 0px 20px #9c9c9c; }
   #main .list li .top {
     background: #f6f8ff;
     color: #808387; }

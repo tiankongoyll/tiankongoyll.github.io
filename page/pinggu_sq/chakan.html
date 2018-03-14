@@ -12,29 +12,25 @@
 			<div class="height30"></div>
 			<div class="textC font1-4">评估申请</div>
 		</header>
-		<div id="main" class="Mauto height90 radius10P positionR none">
-			<div class="top font1-4 width100">
-				<p class="PL20" style="padding-bottom: 1rem;padding-top: 1rem;"><img class="headimg radius50 verticlM" src="../../img/pinggu_sq/head-img.jpg"/> 申请人：{{user.name}} <img class="sex verticlM" src="../../img/pinggu_sq/07.png" v-if=" user.gender == '女'"/><img class="sex verticlM" src="../../img/pinggu_sq/08.png" v-else/></p>
+		<div id="main" class="Mauto height90 radius10P">
+			<div class="top font1-4">
+				<p class="PT10 PL20 PB10"><img class="headimg radius50 verticlM" src="../../img/pinggu_sq/head-img.jpg"/> 申请人：{{name}} <img class="sex" src="../../img/pinggu_sq/07.png" v-if="sex == '女'"/><img class="sex" src="../../img/pinggu_sq/08.png" v-else/></p>
+			</div>
+			<div class="list">
 				<div class="fenjie positionR">
 					<div class="zuoyuan radius50"></div>
 					<div class="youyuan radius50"></div>
 				</div>
-			</div>
-			<div class="list height100 overflowA">
-				<!--<div class="fenjie positionR">
-					<div class="zuoyuan radius50"></div>
-					<div class="youyuan radius50"></div>
-				</div>-->
 				<ul class="">
 					<li class="overflowH PT10" v-for="(item, index) in items">
 						<div class="fl width5 height10p"></div>
 						<div class="fl width10 left">
-							<img src="../../img/pinggu_sq/102.png" v-if="index <= response.workStatus"/>
+							<img src="../../img/pinggu_sq/102.png" v-if="index <= response.workStatus-1"/>
 							<img src="../../img/pinggu_sq/103.png" v-else/>
 						</div>
 						<div class="fl right width80 font1-2 colorC">
-							<div v-if="index <= response.workStatus" @click="qiangqing(index)">
-								<div class="yiwan font1-4">{{item.status}} <img class="fr" src="../../img/pinggu_sq/104.png" /></div>
+							<div v-if="index <= response.workStatus-1">
+								<div class="yiwan font1-4">{{item.status}} <img class="fr" src="../../img/pinggu_sq/104.png" @click="qiangqing(index)"/></div>
 								<div v-if="index == 0">
 									<p class="LH3">(评估但提交成功，等待受理)</p>
 									<p class="LH3">{{response.applicationTime}}</p>
@@ -67,58 +63,55 @@
 			</div>
 			<!--弹窗-->
 			<div class="tanchang width100 height100" v-if="tcshow">
-				<div class="center width90 radius10P positionR" v-if="shownum == 0">
-					<img class="headimg radius50" :src="user.headIcon||'../../img/pinggu_sq/head-img.jpg'"/>
+				<div class="center width90 height40 radius10P positionR" v-if="shownum == 0">
+					<img class="headimg radius50" src="../../img/pinggu_sq/head-img.jpg"/>
 					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
-					<div class="toptc width95 Mauto"></div>
+					<div class="top width95 Mauto"></div>
 					<div class="jianjie font1-4 PL20 LH2">
-						<p>申请人姓名<span>{{user.name}}</span>    年龄：{{user.age}}</p>
-						<p>联 系 电 话: {{user.phone}}</p>
-						<p style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">联 系 卡 号:{{user.userId}}</p>
-						<p class="twoline">待服务地点：{{user.address}}</p>
+						<p>申请人姓名<span>王妮</span>    年龄：</p>
+						<p>联 系 电 话</p>
+						<p>联 系 卡 号</p>
+						<p>待服务地点：</p>
 						
 					</div>
 					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="shownum=null;tcshow=false">确定</div>
 				</div>
-				<div class="center2 width90 radius10P positionR" v-if="shownum == 1">
-					<img class="headimg radius50" :src="response.acceptIcon ||'../../img/pinggu_sq/head-img.jpg'"/>
-					<!--<img class="headimg radius50" src="img/pinggu_sq/head-img.jpg" onerror="this.src='../../img/pinggu_sq/head-img.jpg'"/>-->
-					
+				<div class="center2 width90 height40 radius10P positionR" v-if="shownum == 1">
+					<img class="headimg radius50" src="../../img/pinggu_sq/head-img.jpg"/>
 					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
-					<div class="toptc width95 Mauto"></div>
+					<div class="top width95 Mauto"></div>
 					<div class="jianjie font1-4 PL20 LH2">
-						<p>受理人姓名：{{response.acceptName}}</p>
-						<p class="twoline">受理地址：{{response.mechanismAddress}}</p>
-						<p>受理机构：{{response.mechanismName}}</p>
+						<p>受理人姓名：</p>
+						<p>受理地址：</p>
+						<p>受理机构：</p>
 					</div>
 					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="shownum=null;tcshow=false">确定</div>
 				</div>
-				<div class="center3 width90 radius10P positionR" v-if="shownum == 2">
-					<img class="headimg radius50" :src="response.workerIcon||'../../img/pinggu_sq/head-img.jpg'"/>
+				<div class="center3 width90 height40 radius10P positionR" v-if="shownum == 2">
+					<img class="headimg radius50" src="../../img/pinggu_sq/head-img.jpg"/>
 					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
-					<div class="toptc width95 Mauto"></div>
+					<div class="top width95 Mauto"></div>
 					<div class="jianjie font1-4 PL20 LH2">
-						<p>派单人姓名：<span>{{response.workerName}}</span>  <label class="fr PR20">工号：{{response.workNumber}}</label></p>
-						<p>评 估 时 间：{{response.assessTime}}</p>
-						<p class="twoline">评 估 地 点：{{user.address}}</p>
+						<p>派单人姓名：<span>证阿鲁</span>  工号：</p>
+						<p>评 估 时 间：</p>
+						<p>评 估 地 点：</p>
 					</div>
 					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="shownum=null;tcshow=false">确定</div>
 				</div>
-				<div class="center4 width90 radius10P positionR" v-if="shownum == 3">
-					<img class="headimg radius50" :src="user.headIcon||'../../img/pinggu_sq/head-img.jpg'"/>
+				<div class="center4 width90 height70 radius10P positionR" v-if="shownum == 3">
+					<img class="headimg radius50" src="../../img/pinggu_sq/head-img.jpg"/>
 					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
-					<div class="toptc width95 Mauto"></div>
+					<div class="top width95 Mauto"></div>
 					<div class="jianjie font1-2 PL20 LH1-5">
 						<p class="font1-4">评估确认</p>
-						<p>时间：{{response.assessConfirmTime}} 工号：{{response.workNumber}}</p>
-						<p class="twoline">地点：{{user.address}}</p>
-						<p>签到：{{response.checkInTime}}</p>
-						<p>签出：{{response.checkOutTime}}</p>
+						<p>时间：  工号：</p>
+						<p>地点：</p>
+						<p>签到：</p>
+						<p>签出：</p>
 						<p class="font1-4">服务评价：</p>
 						<ul class="overflowH PT10">
-							<li v-for="n in 5" class="fl PL20">
-								<!--<img src="../../img/pinggu_sq/112.png" v-if="level >= n"/>-->
-								<img src="../../img/pinggu_sq/112.png" v-if="(response.pjLevel) >= n"/>
+							<li v-for="n in 5" class="fl PL20" @click="pingjiadj(n)">
+								<img src="../../img/pinggu_sq/112.png" v-if="level >= n"/>
 								<img src="../../img/pinggu_sq/113.png" v-else/>
 							</li>
 							<!--<li class="fl PL20"><img src="../../img/pinggu_sq/112.png"/></li>
@@ -131,14 +124,14 @@
 						
 					</div>
 					<div class="neirong width80 font1-2 Mauto radius5P">
-						<textarea class="width100 height100" v-model="response.pjContent" name="" rows="" cols="" placeholder="" disabled="disabled"></textarea>
+						<textarea class="width100 height100" name="" rows="" cols=""></textarea>
 					</div>
 					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="shownum=null;tcshow=false">确定</div>
 				</div>
 				<div class="center5 width90 height30 radius10P positionR" v-if="shownum == 4">
 					<img class="headimg radius50" src="../../img/pinggu_sq/115.png"/>
 					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
-					<div class="toptc width95 Mauto"></div>
+					<div class="top width95 Mauto"></div>
 					<div class="jianjie PL20 ">
 						<p class="font1-4 LH2 textC">您的评估申请<span>已通过</span></p>
 						<p class="font1-4 LH2 textC">请领取您的评估结论报告书</p>
@@ -150,7 +143,7 @@
 				<div class="center6 width90 height30 radius10P positionR" v-if="shownum == 9">
 					<img class="headimg radius50" src="../../img/pinggu_sq/114.png"/>
 					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
-					<div class="toptc width95 Mauto"></div>
+					<div class="top width95 Mauto"></div>
 					<div class="jianjie PL20 ">
 						<p class="font1-4 LH1-5 textC">您的评估申请<label>未通过</label></p>
 						<p class="font1-4 LH1-5 textC">如有疑问请申请复议</p>

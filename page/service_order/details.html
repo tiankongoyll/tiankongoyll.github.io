@@ -5,10 +5,6 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title>订单详情</title>
 		<link rel="stylesheet" type="text/css" href="../../css/service_order/details.css"/>
-		<script src="../../js/vconsole.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			var vConsole = new VConsole();
-		</script>
 	</head>
 	<body>
 		<script type="text/javascript">
@@ -17,13 +13,13 @@
 	            	window.webkit.messageHandlers.removeNavigationBar.postMessage(ipon);
 	        	}
 		</script>
-		<header id="iosbox" class="colorF width100">
-			<img class="height1-4R" src="../../img/pinggu_sq/03.png" onclick="window.history.go(-1)"/>
-			<!--<div class="height30"></div>-->
-			<div class="textC font1-4 LH2">订单详情</div>
+		<header class="positionR colorF height7">
+			<img src="../../img/pinggu_sq/03.png" onclick="window.history.go(-1)"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">订单详情</div>
 		</header>
-		<div id="main" class="none">
-			<div class="orderstyle PT10 backgroundF">
+		<div id="main" class="">
+			<div class="orderstyle PT20 backgroundF">
 				<p class="font1-2 color6 PL20">订单状态: <label class="font1-4">{{order.ordertypetext}}</label></p>
 				<ul class="width90 textC Mauto overflowH PT20 PB20 color6">
 					<li class="fl">      
@@ -67,46 +63,37 @@
 				<p class="infortop font1-2 PT10 PB10 PL20">
 					<img class="height1-8R verticlM" src="../../img/service_order/105.png"/>&nbsp;&nbsp;&nbsp;订单信息
 				</p>
-				<p class="font1 color6 LH2 PL20 PT10">工单编号：{{order.orderId}}</p>
-				<p class="font1 color6 LH2 PL20">服务内容：{{order.serviceName}}</p>
-				<p class="font1 color6 LH2 PL20">服务地址：{{order.peopleAddress}}</p>
-				<p class="font1 color6 LH2 PL20">联系电话：{{order.peoplePhone}}</p>
-				<p class="font1 color6 LH2 PL20">服务对象：{{user.name}}</p>
-				<!--<p class="font1 color6 LH2 PL20 PB10">预约服务时间：{{order.yyfwTime}}</p>-->
+				<p class="font1 color6 LH2 PL20 PT10">工单编号：</p>
+				<p class="font1 color6 LH2 PL20">服务内容：</p>
+				<p class="font1 color6 LH2 PL20">服务地址：</p>
+				<p class="font1 color6 LH2 PL20">联系电话：</p>
+				<p class="font1 color6 LH2 PL20">服务对象：</p>
+				<p class="font1 color6 LH2 PL20 PB10">预约服务时间：</p>
 			</div>
 			<div class="meninfor MT10 backgroundF" v-if="order.ordertype >=2">
 				<p class="infortop font1-2 PT10 PB10 PL20">
 					<img class="height1-8R verticlM" src="../../img/service_order/106.png"/>&nbsp;&nbsp;&nbsp;服务人员信息
 				</p>
-				<p class="font1-4 LH3 PL20"><img class="headimg verticlM height3R" v-bind:src="order.nurseIcon||'../../img/pinggu_sq/06.png'"/>
-					&nbsp;&nbsp;&nbsp;{{order.nurseName}}&nbsp;&nbsp;&nbsp;女 
-					<a class="fr"  @click="telipon(order.peoplePhone)" v-if="ios">
-						<img class="height3R PT20 PR20" src="../../img/service_order/108.png"/>
-					</a>
-					<a class="fr"  v-bind:href="'tel:'+order.peoplePhone" v-else>
-						<img class="height3R PT20 PR20" src="../../img/service_order/108.png"/>
-					</a>
-				</p>
+				<p class="font1-4 LH3 PL20"><img class="headimg verticlM height3R" v-bind:src="order.nurseIcon"/>&nbsp;&nbsp;&nbsp;评估员&nbsp;&nbsp;&nbsp;女 <a class="fr"  onclick="secondClick('18003722634')"><img class="height3R PT20 PR20" src="../../img/service_order/108.png"/></a></p>
 				<p class="font1 color6 LH2" style="text-indent:6.3rem;">联系电话：{{order.peoplePhone}}</p>
-				<p class="font1 color6 LH2 PB10" style="text-indent:6.3rem;">{{order.nurseGoodAt}}</p>
+				<p class="font1 color6 LH2 PB10" style="text-indent:6.3rem;">擅长：如洗头、洗脸。。。。</p>
 			</div>
 			<div class="orderprocess MT10 backgroundF" v-if="order.ordertype >=3">
 				<p class="infortop font1-2 PT10 PB10 PL20">
 					<img class="height1-8R verticlM" src="../../img/service_order/107.png"/>&nbsp;&nbsp;&nbsp;服务过程记录
 				</p>
-				<p class="font1 color6 LH2 PL20 PT10">签到时间：{{order.checkInTime}}</p>
-				<p class="font1 color6 LH2 PL20 PB10">签退时间：{{order.checkOutTime}}</p>
+				<p class="font1 color6 LH2 PL20 PT10">签到时间：</p>
+				<p class="font1 color6 LH2 PL20 PB10">签退时间：</p>
 				<div class="LH3 textC colorF font1-4">
-					<!--<div class="width50 fl" style="background: #5a72ec;">
+					<div class="width50 fl" style="background: #5a72ec;">
 						分享
-					</div>-->
-					<div class="" style="background: #6eb3ff;" v-if="order.ordertype ==3" @click="tcshow=true">
+					</div>
+					<div class="width50 fl" style="background: #6eb3ff;" v-if="order.ordertype ==3" @click="tcshow=true">
 						去评价
 					</div>
-					<div class="" style="background: #6eb3ff;" v-else @click="tcshow=true">
+					<div class="width50 fl" style="background: #6eb3ff;" v-else @click="tcshow=true">
 						查看评价
 					</div>
-					
 				</div>
 			</div>
 			<!--弹窗-->
@@ -116,24 +103,17 @@
 					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
 					<div class="top width95 Mauto"></div>
 					<div class="jianjie font1-2 PL20 LH1-5 color6">
-						<p class="font1-4 PB10">服务详情</p>
-						<p>服务人员：{{order.nurseName}}工号：{{order.nurseNo}}</p>
-						<p>服务地点：{{user.address}}</p>
-						<p>签到时间：{{order.checkInTime}}</p>
-						<p>签出时间：{{order.checkOutTime}}</p>
-						<p>工单编号：{{order.gdId}}</p>
+						<p class="font1-4 PB10">服务详情：</p>
+						<p>服务人员：  工号：</p>
+						<p>服务地点：</p>
+						<p>签到时间：</p>
+						<p>签出时间：</p>
+						<p>工单编号：</p>
 						<!--<p class="font1-4">服务评价：</p>-->
-						<!--<ul class="overflowH PT10">
-							<li class="fl font1-2">评价结果</li>
-							<li v-for="n in 5" class="fl PL20" @click="pingjiadj(n)">
-								<img src="../../img/pinggu_sq/112.png" v-if="level >= n"/>
-								<img src="../../img/pinggu_sq/113.png" v-else/>
-							</li>
-						</ul>-->
 						<ul class="overflowH PT10">
 							<li class="fl font1-2">评价结果</li>
 							<li v-for="n in 5" class="fl PL20" @click="pingjiadj(n)">
-								<img src="../../img/pinggu_sq/112.png" v-if="order.pjdj >= n"/>
+								<img src="../../img/pinggu_sq/112.png" v-if="level >= n"/>
 								<img src="../../img/pinggu_sq/113.png" v-else/>
 							</li>
 						</ul>
@@ -141,16 +121,15 @@
 						
 					</div>
 					<div class="neirong width80 font1-2 Mauto radius5P">
-						<textarea class="width100 height100" v-model="order.pjnr" name="" rows="" cols="" :disabled="order.ordertype ==4"></textarea>
+						<textarea class="width100 height100" name="" rows="" cols="" :disabled="order.ordertype ==4"></textarea>
 					</div>
-					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="evaluation" v-if="order.ordertype == 3">确定</div>
+					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="tcshow=false" v-if="order.ordertype == 3">确定</div>
 					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="tcshow=false" v-else>知道了</div>
+					
 				</div>
 			</div>
 		</div>
 		<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../../js/service_order/details.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

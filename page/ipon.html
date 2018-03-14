@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function secondClick(ipon) {
+				console.log("使用iOS拨打电话"+ipon);
+	            	window.webkit.messageHandlers.removeNavigationBar.postMessage(ipon);
+	        	}
+		</script>
+		<a onclick="secondClick('18003722634')">打电话</a>
+	</body>
+</html>

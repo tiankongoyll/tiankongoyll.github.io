@@ -1,58 +1,48 @@
 var main = new Vue({
 	el: '#main',
 	data: {
-		loading:'',
-		pagNamb:0,
-		response: []
-	},
-	methods:{
-		openurl:function(workerid){
-			sessionStorage.pinggu_sq = workerid;
-			window.location.href='chakan.html';
-		},
-		onScroll:function(ref){
-//			console.log("滚动高度："+this.$refs[ref].scrollTop+"可视高度："+this.$refs[ref].clientHeight+"文档高度："+this.$refs[ref].scrollHeight)
-			if(this.$refs[ref].scrollTop+this.$refs[ref].clientHeight >= this.$refs[ref].scrollHeight-2){
-//				console.log("调用加载")
-				callload(this.pagNamb)
+		response: [
+			{
+				applicationTime: "评估申请时间",
+				acceptTime: "评估受理时间",
+				acceptTime: "评估派单时间",
+				assessConfirmTime: "评估确认时间",
+				resultConfirmTime: "评估结果确认时间",
+				workId: "工单id",
+				workerid: "服务人员id",
+				workerIcon: "头像",
+				workerName: "姓名",
+				workerGender: "女",
+				workerPhone: "电话号码",
+				workStatus: "1"
+			},
+			{
+				applicationTime: "评估申请时间",
+				acceptTime: "评估受理时间",
+				acceptTime: "评估派单时间",
+				assessConfirmTime: "评估确认时间",
+				resultConfirmTime: "评估结果确认时间",
+				workId: "工单id",
+				workerid: "服务人员id",
+				workerIcon: "../../img/pinggu_sq/06.png",
+				workerName: "姓名",
+				workerGender: "男",
+				workerPhone: "电话号码",
+				workStatus: "2"
 			}
-		}
-	}
 
+		]
+	}
 })
 
-function callload(pageNo){
-	if(!main.loading){
-		main.loading="正在加载 . . .";
-		ajaxPost(
-			Url.PGAPPLY_LIST, 
-			{
-				"pageNo":pageNo||'0',
-				"pageSize":"10"
-			},
-			function(data) {
-				console.log(data)
-				if(data.status==1){
-					main.pagNamb+=1;
-					if(data.response.length == 0 || data.response.length<10){
-						main.loading="没有更多了。。。"
-					}else{
-						main.loading='';
-					}
-					for(var i=0;i<data.response.length;i++){
-						main.response.push(data.response[i])
-					}
-					document.getElementById("main").setAttribute("style","display: block;")
-//					main.response=data.response
-				}else{
-					main.loading="";
-				}
-			},
-			function(){
-				main.loading="";
-			}
-		)
+ajaxPost(
+	Url.PGAPPLY_LIST, 
+	{
+		"pageNo":"0",
+		"pageSize":"10"
+	},
+	function(data) {
+		console.log(data)
+		main.response=data.response
 	}
-}
-callload();
-//document.getElementById("main").setAttribute("style","display: block;")
+)

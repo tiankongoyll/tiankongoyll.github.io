@@ -7,22 +7,22 @@
 		<link rel="stylesheet" type="text/css" href="../../css/pinggu_sq/shenqing.css"/>
 	</head>
 	<body>
-		<header class="positionR colorF">
+		<header class="positionR colorF height7">
 			<img src="../../img/pinggu_sq/03.png" onclick="window.history.go(-1)"/>
-			<!--<div class="height30"></div>-->
-			<div class="textC font1-4 LH2-5">评估申请</div>
+			<div class="height30"></div>
+			<div class="textC font1-4">评估申请</div>
 		</header>
 		<div id="main">
 			<div class="top">
-				<img class="radius50 fl" :src="user.headIcon||'../../img/pinggu_sq/head-img.jpg'"/>
+				<img class="radius50 fl" src="../../img/pinggu_sq/head-img.jpg"/>
 				<div class="fl colorF font1-2 PL10">
-					<p>【{{user.name}}】{{user.age}}岁</p>
-					<p> &nbsp;身 份 证：{{user.idCard}}</p>
+					<p>【证阿鲁】岁</p>
+					<p> &nbsp;身 份 证：23243</p>
 				</div>
 			</div>
 			<div class="dizhi PT10">
-				<p class="font1-4 verticlM ML20 MR20 LH3"><img src="../../img/pinggu_sq/002.png"/>&nbsp;&nbsp;社保卡号：<input v-model="idCard" placeholder="edit me" style="border: none;outline: none"></p>
-				<p class="font1-4 verticlM ML20 MR20 LH3"><img src="../../img/pinggu_sq/003.png"/>&nbsp;&nbsp;地址：<input v-model="adress" placeholder="edit me" style="border: none;outline: none"></p>
+				<p class="font1-4 verticlM ML20 MR20 LH3"><img src="../../img/pinggu_sq/002.png"/>&nbsp;&nbsp;社保卡号：<input v-model="idCard" placeholder="edit me" style="border: none;"></p>
+				<p class="font1-4 verticlM ML20 MR20 LH3"><img src="../../img/pinggu_sq/003.png"/>&nbsp;&nbsp;地址：<input v-model="adress" placeholder="edit me" style="border: none;"></p>
 			</div>
 			<div class="xuzhi PT20 colorC">
 				<ul class="overflowH">

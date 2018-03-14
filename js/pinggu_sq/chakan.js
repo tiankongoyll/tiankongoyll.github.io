@@ -1,7 +1,8 @@
 var main = new Vue({
 	el: '#main',
 	data: {
-		user:JSON.parse(localStorage.user_info||'{}'),
+		name:"王自健",
+		sex:"男",
 		items:[
 			 {
 			 	status:"评估申请"
@@ -22,7 +23,28 @@ var main = new Vue({
 		level:0,
 		tcshow:false,
 		shownum:null,
-		response:{}
+		response:{
+            acceptName: "",
+			acceptIcon: "",
+			acceptGender: "",
+			acceptAddress: "",
+			acceptAge: "", 
+			acceptCard: "", 
+			mechanismAddress: "",
+			applicationTime: "评估申请时间",
+			acceptTime: "评估受理时间", 
+			assessTime:"评估派单时间",
+			assessConfirmTime: "评估确认时间",
+			resultConfirmTime: "评估结果确认时间",
+            workId: "",
+             workerid: " ",
+             workerIcon: " ",
+             workerName: " ",
+             workerGender: " ",
+             workerPhone: " ",
+             workStatus: 5,
+        }
+
 	},
 	methods:{
 		qiangqing:function(num){
@@ -49,16 +71,10 @@ var main = new Vue({
 ajaxPost(
 	Url.PGAPPLY_LISTDETAIL,
 	{
-		"workId": sessionStorage.pinggu_sq,
+		"workId": "oorder20171226",
 	},
 	function(data) {
 		console.log(data)
-		if(data.status == "1"){
-			if(data.response[0]){
-				if(data.response[0].workStatus == "1-1"){data.response[0].workStatus=1;}
-			}
-			main.response=data.response[0]||{};
-		}
+		alert("提交完成")
 	}
 )
-document.getElementById("main").setAttribute("style","display: block;")

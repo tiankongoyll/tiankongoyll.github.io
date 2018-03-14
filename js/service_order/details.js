@@ -1,48 +1,40 @@
 var main = new Vue({
 	el: '#main',
 	data: {
-		user:JSON.parse(localStorage.user_info||'{}'),
-		order:JSON.parse(sessionStorage.service_order||'{}'),
-		tcshow:false,
-		ios:iosipone,
+		order:{
+				ordertypetext:"待服务",
+				ordertype:"4",//订单状态1、2、3、4
+				orderId : "",
+				orderTime : "",
+				serviceId : "1",
+				serviceName : "服务名称",
+				serviceGeneral : "",
+				peopleAddress : "",
+				peoplePhone : "18003722634",
+				peopleName : "",
+				nurseId : "",
+				nurseIcon : "../../img/pinggu_sq/06.png",
+				nurseNo : "服务人员工号",
+				nursePrice : "服务价格",
+				nurseName : "",
+				nurseGender : "",
+				nurseGoodAt : "",
+				checkInTime : "",
+				checkOutTime : "",
+			},
+			level:0,//等级
+			tcshow:false,
+//			shownum:0,
 	},
 	methods: {
 		pingjiadj:function(numb){
 			if(this.order.ordertype == 3){
-				this.order.pjdj=numb;
+				this.level=numb;
 			}
 		},
 		cancelorder:function(){
 			this.tcshow=false;
-		},
-		evaluation:function(){
-			pingjia(this.order.pjdj,this.order.pjnr)
-			this.tcshow=false;
-		},
-		telipon:function(ipon){
-			console.log("调用iOS方法"+ipon)
-			secondClick(ipon)
+//			this.shownum=0;
 		}
 	}
 })
-
-function pingjia(level,discuss){
-	ajaxPost(
-		Url.FWORDER_EVALUATE, 
-		{
-			"orderId":main.order.orderId,
-			"level":level,
-			"discuss":discuss
-		},
-		function(data) {
-			console.log(data)
-			log_message("评价成功")
-			window.history.go(-1);
-		}
-	)
-}
-if(iosipone){
-	document.getElementById("iosbox").setAttribute("style","top: 18px;")
-	document.getElementById("iosbox2").setAttribute("style","position: fixed;top: 0px;left: 0px;height: 18px;width:100%;background: #698af3;")
-}
-document.getElementById("main").setAttribute("style","display: block;")
