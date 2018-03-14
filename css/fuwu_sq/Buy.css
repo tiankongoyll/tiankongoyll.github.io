@@ -1,0 +1,189 @@
+body {
+	background: #fff!important;
+	font-family: "苹方"!important;
+}
+p{
+	margin-bottom: 0;
+}
+header {
+	background: #698af3;
+}
+header img {
+	height: 1.5rem;
+	position: absolute;
+	top: 30%;
+	left: 10px;
+}
+
+.address{
+	background-color: #f6f8fe;
+	padding: 2.5rem 2rem;
+}
+
+.address h3{
+	color: #222;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: "苹方";
+}
+.address h3 span.sex{
+	margin: 0 3rem 0 1.5rem;
+}
+.address h3 span.tel{
+	font-weight: 300;
+}
+.address p{
+	color: #222;
+	font-size: 1.2rem;
+	background: url(../../img/fuwu_sq/fuwu-index/address.png) no-repeat;
+    background-size: 12px;
+    padding-left: 20px;
+    background-position: 0 center;
+}
+.address p img{
+	height: 1rem;
+    float: right;
+    margin-top: 4px;	
+}
+
+.line{
+	width: 100%;
+    float: left;
+    height: 2px;
+}
+
+.cont{
+	clear: both;
+	padding: 20px 5px 20px 10px;
+	
+}
+.cont .left{
+	width: 25%;
+	float: left;
+}
+.cont .left img{
+	width: 75%;
+    border: 1px solid #eaeaea;
+    margin:10px 0 10px 10px;
+    max-width: 70px;
+}
+.cont .right{
+	width: 75%;
+	display: inline-block;
+}
+.cont .right .tname{
+	color: #222222;
+	font-size: 1.5rem;
+	text-indent: -1rem;
+	
+}
+.cont .right .price{
+	color: #222;
+	font-size: 1rem;
+	margin-top: 10px;
+}
+.cont .right .price i{
+	font-style: normal;
+	color: #ff7800;
+	
+}
+.cont .right .price .bz{
+	font-size: 1rem;
+}
+.cont .right .price span{
+	color: #ff7800;
+	font-size: 1.8rem;
+}
+.driver{
+	height: 10px;
+	background: #f6f9fe;
+}
+.number {
+    height: 60px;
+    border-bottom: 2px dashed #f6f9fe;
+}
+.number span {
+    line-height: 60px;
+    margin-left: 5%;
+    color: #666666;
+}
+ .number .mui-numbox {
+    float: right;
+    margin-top: 10px;
+    margin-right: 5%;
+}
+.mui-numbox .mui-btn-numbox-plus, .mui-numbox .mui-numbox-btn-plus{
+	color: #ff7800;
+}
+p.Tit{
+	height: 3rem;
+	line-height: 3rem;
+	margin-left: 5%;
+	color: #222;
+}
+p.Tit span{
+	color:#ff7800 ;
+	margin-right: 5px;
+}
+.ui-alert {
+    display: inline-block;
+	margin-left: 5%;
+	color: #ff1e00;
+}
+.mui-table-view:before{
+	background-color: #fff!important;
+}
+.mui-table-view:after{
+	background-color: #fff!important;
+}
+.mui-table-view-cell:after{
+	background-color: #f6f9fe!important;
+}
+.mui-table-view-cell>a:not(.mui-btn){
+	font-size: 1.3rem;
+	color: #a9a9a9;
+}
+bottom{
+	display: block;
+	height: 5rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background: #fff;
+}
+bottom button{
+	outline: none;
+	font-family: "è‹¹æ–¹";
+	width: 90%;
+	height: 3.5rem;
+	font-size: 1.5rem;
+	color: #fff;
+	background: #6eb3ff;
+	border: 1px solid #6eb3ff;
+	box-shadow: 0 0 10px 0px #6eb3ff;
+	border-radius: 5px;
+}
+bottom button img{
+    width: 17px;
+    margin-right: 7px;
+}
+.bg{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(0,0,0,.5);
+	top: 0;
+	display: none;
+}
+.model{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 70%;
+	display: none;
+}
+.model img{
+	width: 100%;
+}

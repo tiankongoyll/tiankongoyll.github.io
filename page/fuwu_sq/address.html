@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>服务申请</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/fuwu_sq/address.css" />
+	</head>
+	<body>
+		<header class="positionR colorF height7">
+			<img src="../../img/pinggu_sq/03.png"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">收货地址</div>
+		</header>
+		<section class="section">
+			<div class="radio">
+				<img src="../../img/fuwu_sq/fuwu-index/radio2.png" alt="" />
+			</div>
+			<div class="add_right">
+				<h3><span class="name">郑阿陆</span><span class="tel">1386812281</span></h3>
+				<p>烟台市莱山区莱山街道123号</p>
+			</div>
+			<button class="edit">编辑</button>
+		</section>
+		<section class="section">
+			<div class="radio">
+				<img src="../../img/fuwu_sq/fuwu-index/radio.png" alt="" />
+			</div>
+			<div class="add_right">
+				<h3><span class="name">郑阿陆</span><span class="tel">1386812281</span></h3>
+				<p>烟台市莱山区莱山街道123号</p>
+			</div>
+			<button class="edit">编辑</button>
+		</section>
+		<section class="section">
+			<div class="radio">
+				<img src="../../img/fuwu_sq/fuwu-index/radio.png" alt="" />
+			</div>
+			<div class="add_right">
+				<h3><span class="name">郑阿陆</span><span class="tel">1386812281</span></h3>
+				<p>烟台市莱山区莱山街道123号</p>
+			</div>
+			<button class="edit">编辑</button>
+		</section>
+		<bottom>
+			<button class="plus"><img src="../../img/fuwu_sq/fuwu-index/plus.png" alt="" />新增地址</button>
+		</bottom>
+	</body>
+	<script src="../../js/jquery-1.11.3.min.js"></script>
+	<script>
+		$(function(){
+			$("header img").click(function(){
+				window.location.href="javascript:history.back(-1)"
+			})
+			
+			
+			$("section").click(function(){
+				$(this).children('.radio').children('img').attr("src","../../img/fuwu_sq/fuwu-index/radio2.png")
+				$(this).siblings().children('.radio').children('img').attr("src","../../img/fuwu_sq/fuwu-index/radio.png")
+			});
+			$(".edit").click(function(e){
+				e.stopPropagation();
+				window.location.href="xiugai-address.html"
+				
+			})
+			$(".plus").click(function(){
+				window.location.href="new-address.html";
+			})
+		})
+	</script>
+</html>

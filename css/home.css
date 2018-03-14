@@ -1,0 +1,10 @@
+@import url("common.css");
+.main {
+  height: 40%; }
+  .main li {
+    float: left;
+    width: 25%;
+    height: 50%;
+    text-align: center; }
+    .main li img {
+      height: 3rem; }

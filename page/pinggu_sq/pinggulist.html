@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>评估列表</title>
+    		<link rel="stylesheet" type="text/css" href="../../css/pinggu_sq/list.css"/>
+    		<link rel="stylesheet" type="text/css" href="../../css/pinggu_sq/pinggulist.css"/>
+	</head>
+	<body>
+		<header class="positionR colorF height7">
+			<img src="../../img/pinggu_sq/03.png" onclick="window.history.go(-1)"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">评估列表</div>
+		</header>
+		<div id="main" class="width100 overflowA none" style="height: 93%" ref="mybox" v-on:scroll.passive="onScroll('mybox')">
+			<div class="list" v-if="response.length">
+				<ul>
+					<li class="width90 Mauto overflowH radius10P MT20" v-for="item in response">
+						<div class="top font1-4 PL20 LH3">
+							评估编号：{{item.workId}}
+						</div>
+						<div class="chenter PL10 PR10">
+							<!--<p class="font1-4 LH3" v-if="item.workStatus!=1"><img class="headimg" v-bind:src="item.workerIcon"/>评估员：{{item.workerName}}<img class="xingbie" src="../../img/pinggu_sq/07.png" v-if="item.workerGender == '0'"/> <img class="xingbie" src="../../img/pinggu_sq/08.png" v-else/></p>-->
+							<p class="font1-4 LH3" v-if="item.workStatus!=1">评估员：{{item.workerName}} <img class="xingbie" src="../../img/pinggu_sq/07.png" v-if="item.workerGender == '0'"/> <img class="xingbie" src="../../img/pinggu_sq/08.png" v-else/></p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/04.png"/>&nbsp;&nbsp;联系电话：{{item.workerPhone}}</p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/05.png"/>&nbsp;&nbsp;评估申请时间：{{item.acceptTime}}</p>
+							<div class="bord"></div>
+							<div class="">
+								<!--<button class="yiping fr PB5 PT5 PL20 PR20 MT10 MB10 MR15 radius5P">已评价</button>-->
+								<button class="quping fr PB5 PT5 PL20 PR20 MT10 MB10 MR15 radius5P" @click="goping(item.workId)">去评价</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<p class="textC LH2">{{loading}}</p>
+			</div>
+			<div class="nolist width100 height100 textC" v-else>
+				<div class="height30">
+					
+				</div>
+			  <img src="../../img/pinggu_sq/02.png"/>
+			  <div class="colorC PT10 font1-4">暂时没有评估列表</div>
+			</div>
+			<!--弹窗-->
+			<div class="tanchang width100 height100" v-if="tcshow">
+				<div class="center4 width90 radius10P positionR" v-if="shownum == 3">
+					<img class="headimg radius50" :src="appraise.workerIcon||'../../img/pinggu_sq/head-img.jpg'"/>
+					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
+					<div class="top width95 Mauto"></div>
+					<div class="jianjie font1-2 PL20 LH1-5">
+						<p class="font1-4">评估确认</p>
+						<p>时间：{{appraise.assessConfirmTime}}  工号：{{appraise.workNumber}}</p>
+						<p>地点：{{user.address}}</p>
+						<p>签到：{{appraise.checkInTime}}</p>
+						<p>签出：{{appraise.checkOutTime}}</p>
+						<p class="font1-4">服务评价：</p>
+						<ul class="overflowH PT10">
+							<li v-for="n in 5" class="fl PL20" @click="pingjiadj(n)">
+								<img src="../../img/pinggu_sq/112.png" v-if="level >= n"/>
+								<img src="../../img/pinggu_sq/113.png" v-else/>
+							</li>
+						</ul>
+						<p class="font1-4 PB20">评价内容</p>
+						
+					</div>
+					<div class="neirong width80 font1-2 Mauto radius5P">
+						<textarea class="width100 height100" name="" rows="" cols="" v-model="pingjia_message"></textarea>
+					</div>
+					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="pingjia">确定</div>
+				</div>
+			</div>	
+		</div>
+		<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/pinggu_sq/pinggulist.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

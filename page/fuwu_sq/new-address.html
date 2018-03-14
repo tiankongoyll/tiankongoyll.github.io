@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>收货地址</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/fuwu_sq/new-address.css" />
+		<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" href="../../css/fuwu_sq/mui.poppicker.css" />
+		<script src="../../js/mui.min.js"></script>
+	</head>
+	<body>
+		<header class="positionR colorF height7">
+			<img src="../../img/pinggu_sq/03.png"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">收货地址</div>
+		</header>
+		<section>
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>收货人姓名：<span></span></label>
+					<input type="text" placeholder="请输入收货人姓名">
+				</div>
+				<div class="mui-input-row">
+					<label>手 机 号 码：<span></span></label>
+					<input type="number"  placeholder="请输入收货人手机号">
+				</div>
+				<div class="mui-input-row add_pinker" >
+					<label>省、市、区：<span></span></label>
+					<input id='showCityPicker3' class="" type="text"   placeholder="所在地区">
+				</div>
+				<div class="mui-input-row">
+					<label>详 细 地 址：<span></span></label>
+					<input type="text"  placeholder="请输入详细收货地址">
+				</div>
+
+				
+			</form>
+			<bottom>
+				<button class="plus">确 定</button>
+			</bottom>
+		</section>
+	</body>
+</html>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/mui.picker.min.js"></script>
+<script src="../../js/fuwu_sq/mui.poppicker.js"></script>
+<script src="../../js/fuwu_sq/city.data.js"></script>
+<script src="../../js/fuwu_sq/city.data-3.js"></script>
+<script>
+	$(function(){
+		$("header img").click(function(){
+			window.location.href="javascript:history.back(-1)";
+		})
+	})
+</script>
+<script>
+	(function($, doc) {
+		$.init();
+		$.ready(function() {
+			/**
+			 * 获取对象属性的值
+			 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+			 * @param {Object} obj 对象
+			 * @param {String} param 属性名
+			 */
+			var _getParam = function(obj, param) {
+				return obj[param] || '';
+			};
+			//					//级联示例
+			var cityPicker3 = new $.PopPicker({
+				layer: 3
+			});
+			cityPicker3.setData(cityData3);
+			var showCityPickerButton = doc.getElementById('showCityPicker3');
+			var cityResult3 = doc.getElementById('showCityPicker3');
+			showCityPickerButton.addEventListener('tap', function(event) {
+				cityPicker3.show(function(items) {
+					cityResult3.value = _getParam(items[0], 'text') + " " + _getParam(items[1], 'text') + " " + _getParam(items[2], 'text');
+					//返回 false 可以阻止选择框的关闭
+					//return false;
+				});
+			}, false);
+		});
+	})(mui, document);
+</script>

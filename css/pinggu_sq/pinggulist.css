@@ -1,0 +1,54 @@
+@charset "UTF-8";
+.tanchang {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); }
+  .tanchang .center4 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    background: #FFFFFF;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    /* IE 9 */
+    -moz-transform: translateY(-50%);
+    /* Firefox */
+    -webkit-transform: translateY(-50%);
+    /* Safari 和 Chrome */
+    -o-transform: translateY(-50%); }
+    .tanchang .center4 .headimg {
+      width: 8rem;
+      position: absolute;
+      top: -4rem;
+      left: 50%;
+      margin-left: -4rem; }
+    .tanchang .center4 .headimgbg {
+      width: 12rem;
+      position: absolute;
+      top: -4rem;
+      left: 50%;
+      margin-left: -6rem; }
+    .tanchang .center4 .top {
+      height: 4px;
+      background: url(../../img/pinggu_sq/111.png) no-repeat;
+      background-size: 100% 100%; }
+    .tanchang .center4 .jianjie {
+      padding-top: 5rem; }
+      .tanchang .center4 .jianjie span {
+        color: #2571c5; }
+    .tanchang .center4 .but {
+      position: absolute;
+      bottom: 1rem;
+      left: 10%;
+      background: #6eb3ff; }
+  .tanchang .center4 li img {
+    height: 3rem; }
+  .tanchang .center4 .neirong {
+    background: #f4f9ff;
+    padding: 5%;
+    border: solid 1px #e4edf9;
+    margin-bottom: 7.2rem; }
+    .tanchang .center4 .neirong textarea {
+      border: none;
+      background: none; }

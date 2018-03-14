@@ -1,0 +1,80 @@
+body {
+	background: #f5f5f5;
+	font-family: "苹方";
+}
+header {
+	background: #698af3;
+}
+header img {
+	height: 1.5rem;
+	position: absolute;
+	top: 30%;
+	left: 10px;
+}
+nav{
+    margin-top: -1px;	
+}
+nav img {
+	width: 100%;
+}
+main {
+	width: 98%;
+	margin: 0 auto;
+}
+main ul li {
+	float: left;
+	width: 48%;
+	background: #fff;
+	border-radius: 4px;
+	margin: 3px 1%;
+	padding: 19px 0;
+	box-shadow: 0 0 10px 0 #cbd3d9;
+}
+main ul li .left {
+	width: 35%;
+	float: left;
+	text-align: right;
+}
+main ul li .left img{
+	width: 3.3rem;
+	margin-top: 5px;
+	margin-right: 10%;
+}
+main ul li .right {
+	width: 65%;
+	display: inline-block;
+}
+main ul li .right h1{
+	font-size: 1.6rem;
+}
+main ul li .right p{
+	font-size: 1.1rem;
+	color: #768a96;
+	font-weight: 300;
+}
+.color1{color: #00b87d;}
+.color2{color: #01c1ba;}
+.color3{color: #249dd6;}
+.color4{color: #628ae8;}
+.color5{color: #7678fb;}
+.color6{color: #a462e3;}
+.color7{color: #ee75b7;}
+.color8{color: #f98169;}
+.color9{color: #f7a244;}
+.color10{color: #ffa727;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

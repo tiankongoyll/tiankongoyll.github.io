@@ -1,0 +1,51 @@
+body {
+	background: #fff!important;
+	font-family: "苹方"!important;
+}
+p{
+	margin-bottom: 0;
+}
+header {
+	background: #698af3;
+}
+header img {
+	height: 1.5rem;
+	position: absolute;
+	top: 30%;
+	left: 10px;
+}
+
+section{
+	width: 20rem;
+    margin: 40% auto;
+}
+section img{
+	width:100%;
+}
+bottom{
+	display: block;
+	height: 5rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    background: #fff;
+}
+bottom button{
+	outline: none;
+	font-family: "è‹¹æ–¹";
+	width: 90%;
+	height: 3.5rem;
+	font-size: 1.5rem;
+	color: #fff;
+	background: #6eb3ff;
+	border: 1px solid #6eb3ff;
+	box-shadow: 0 0 10px 0px #6eb3ff;
+	border-radius: 5px;
+}
+bottom button img{
+    width: 17px;
+    margin-right: 7px;
+    position: relative;
+    top: 2px;
+}

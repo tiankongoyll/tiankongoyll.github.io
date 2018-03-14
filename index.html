@@ -1,13 +1,126 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
-		<title></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>服务入口</title>
+		<link rel="stylesheet" type="text/css" href="css/home.css" />
+		<script src="js/vconsole.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var vConsole = new VConsole();
+			function onclickaction(){
+				window.webkit.messageHandlers.pushNavigationBar.postMessage("push");
+			}
+		</script>
 	</head>
-	<body>
-		<img src="img/03.png" />
-		<br>
-		<img src="img/04.png" />
+
+	<body class="backgroundF">
+		<header id="iosbox" class="positionR colorF height7 none" onclick="onclickaction()">
+			<img src="img/pinggu_sq/03.png" onclick="onclickaction()"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">医养</div>
+		</header>
+		<img class="width100 height30" src="img/home/01.jpg" />
+		<ul class="main width90 Mauto radius10P overflowH font1-2">
+			<li onclick="gourl('page/pinggu_sq/list.html')">
+				<div class="height20"></div>
+				<div class="width50 Mauto">
+					<img src="img/home/07.png" />
+				</div>
+				<div class="height10"></div>
+				评估申请
+			</li>
+			<li onclick="gourl('page/pinggu_sq/pinggulist.html')">
+				<div class="bord height100 fl"></div>
+				<div class="height20"></div>
+				<div class="width50 Mauto">
+					<img src="img/home/06.png" />
+				</div>
+				<div class="height10"></div>
+				评估评价
+			</li>
+			<li onclick="gourl('page/fuwu_sq/fuwu_index.html')">
+				<div class="bord height100 fl"></div>
+				<div class="height20"></div>
+				<div class="width50 Mauto">
+					<img src="img/home/05.png" />
+				</div>
+				<div class="height10"></div>
+				服务申请
+			</li>
+			<li onclick="gourl('page/service_order/list.html')">
+				<div class="height20"></div>
+				<div class="width50 Mauto">
+					<img src="img/home/04.png" />
+				</div>
+				<div class="height10"></div>
+				服务订单
+			</li>
+			<li>
+				<div class="bord height100 fl"></div>
+				<div class="height20"></div>
+				<div class="width50 Mauto">
+					<img src="img/home/03.png" />
+				</div>
+				<div class="height10"></div>
+				紧急求助
+			</li>
+			<li>
+				<div class="bord height100 fl"></div>
+				<div class="height20"></div>
+				<div class="width50 Mauto">
+					<img src="img/home/02.png" />
+				</div>
+				<div class="height10"></div>
+				体征检测
+			</li>
+		</ul>
+		<div class="allcommomn_backdrop textC radius10P"><img class="height3R" src="img/home/loading.gif" /></div>
+		<script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var login_status = false; //登录状态
+			localStorage.clear();//清除缓存
+			if(iosipone){document.getElementById("iosbox").setAttribute("style", "display: block;")}
+			//ios
+		    function alertMessage(message) {
+			    	 localStorage.shenfenid=message;
+			    	 console.log("获取到的身份证："+message);
+			    	 ajaxhome("37060219480521491X");
+		    }
+		    //安卓
+			function FromJavaLoginInfo() {
+				//调用android程序中的方法，并传递参数
+				var result = window.AndroidWebView.getLoginInfo();
+				localStorage.shenfenid=result;
+				console.log("获取到的身份证："+result)
+				ajaxhome("37060219480521491X")
+			}
+			if(iosipone){
+			}else{
+				FromJavaLoginInfo();
+			}
+			function ajaxhome(idCard){
+				ajaxPost(
+					Url.PGAPPLY_CHECK, {
+						idCard: idCard,
+						type: 'elder'
+					},
+					function(data) {
+						console.log(data)
+						if(data.status == "1") {
+							login_status =true;
+							localStorage.user_info = JSON.stringify(data.response)
+						}
+					}
+				)
+			}
+			function gourl(url) {
+				if(login_status) {
+					window.location.href = url;
+				}
+			}
+		</script>
 	</body>
 </html>

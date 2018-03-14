@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>服务订单</title>
+		<link rel="stylesheet" type="text/css" href="../../css/service_order/list.css"/>
+	</head>
+	<body>
+		<header class="positionR colorF height7">
+			<img src="../../img/pinggu_sq/03.png" onclick="window.history.go(-1)"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">服务订单</div>
+		</header>
+		<div id="main" class="positionR none">
+			<div class="top width100">
+				<ul class="overflowH PB10 PT10">
+					<li class="width33_3 fl" v-for="n in 3">
+						<div class="width70 font1-2 LH2 textC Mauto" v-bind:class="{ center: (isActive == n) }" @click="listtoggle(n)">
+							{{titles[n-1]}}
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="content width100 height100 overflowA" v-if="isActive == 1" ref="mybox" v-on:scroll.passive="onScroll('mybox')">
+				<div style="height: 4rem;"></div>
+				<ul v-if="response.length">
+					<li class="width90 Mauto overflowH radius10P MT20" v-for="item in response">
+						<div class="toplist font1-4 PL20 LH3">
+							<img class="verticlM" src="../../img/service_order/06.png" style="height: 2rem;"/> {{item.serviceName}} <span class="fr PR20" style="color: #ff7800;"> <label class="font1">￥</label>{{item.nursePrice}} <label class="font1">/次</label></span>
+						</div>
+						<div class="chenter PL10 PR10">
+							<p class="dianhua font1-2 colorC LH2 PL10 oneline"><img src="../../img/service_order/01.png"/>&nbsp;&nbsp;工单编号：{{item.nurseNo}}</p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/05.png"/>&nbsp;&nbsp;服务预约时间：{{item.yyfwTime}}</p>
+							<div class="bord"></div>
+							<div class="">
+								<button class="quxiao fl PB5 PT5 PL20 PR20 MT10 MB10 ML15 radius5P" @click="tcshow=true;shownum=2;quxiaoid=item.orderId">取消订单</button>
+								<button class="chakan fr PB5 PT5 PL20 PR20 MT10 MB10 MR15 radius5P" @click="openurl(1,item)">查看</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<p class="textC LH2">{{loading}}</p>
+			</div>
+			<div class="content width100 height100 overflowA" v-if="isActive == 2">
+				<div style="height: 4rem;"></div>
+				<ul v-if="response2.length">
+					<li class="width90 Mauto overflowH radius10P MT20" v-for="item in response2">
+						<div class="toplist font1-4 PL20 LH3">
+							<img class="verticlM" src="../../img/service_order/06.png" style="height: 2rem;"/> {{item.serviceName}} <span class="fr PR20" style="color: #ff7800;"> <label class="font1">￥</label>{{item.nursePrice}} <label class="font1">/次</label></span>
+						</div>
+						<div class="chenter PL10 PR10">
+							<p class="font1-4 LH3"><img class="headimg" v-bind:src="item.nurseIcon"/>评估员：{{item.workerName}}<img class="xingbie" src="../../img/pinggu_sq/07.png" v-if="item.nurseGender == '女'"/><img class="xingbie" src="../../img/pinggu_sq/08.png" v-else/></p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/04.png"/>&nbsp;&nbsp;联系电话：{{item.peoplePhone}}</p>
+							<p class="dianhua font1-2 colorC LH2 PL10 oneline"><img src="../../img/service_order/01.png"/>&nbsp;&nbsp;工单编号：{{item.nurseNo}}</p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/05.png"/>&nbsp;&nbsp;上门服务时间：{{item.yyfwTime}}</p>
+							<div class="bord"></div>
+							<div class="">
+								<button class="tel fl PB5 PT5 PL20 PR20 MT10 MB10 ML15 radius5P"><a :href="'tel:'+item.peoplePhone">联系TA</a></button>
+								<button class="chakan fr PB5 PT5 PL20 PR20 MT10 MB10 MR15 radius5P" @click="openurl(2,item)">查看</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<p class="textC LH2">{{loading}}</p>
+			</div>
+			<div class="content width100 height100 overflowA" v-if="isActive == 3">
+				<div style="height: 4rem;"></div>
+				<ul v-if="response3.length">
+					<li class="width90 Mauto overflowH radius10P MT20" v-for="item in response3">
+						<div class="toplist font1-4 PL20 LH3">
+							<img class="verticlM" src="../../img/service_order/06.png" style="height: 2rem;"/> {{item.serviceName}} <span class="fr PR20" style="color: #ff7800;"> <label class="font1">￥</label>{{item.nursePrice}} <label class="font1">/次</label></span>
+						</div>
+						<div class="chenter PL10 PR10">
+							<!--<p class="font1-4 LH3"><img class="headimg" v-bind:src="item.nurseIcon"/>评估员：{{item.workerName}}<img class="xingbie" src="../../img/pinggu_sq/07.png" v-if="item.nurseGender == '女'"/><img class="xingbie" src="../../img/pinggu_sq/08.png" v-else/></p>-->
+							<p class="font1-4 LH3">评估员：{{item.nurseName}} <img class="xingbie" src="../../img/pinggu_sq/07.png" v-if="item.nurseGender == '女'"/><img class="xingbie" src="../../img/pinggu_sq/08.png" v-else/></p>
+							<p class="dianhua font1-2 colorC LH2 PL10 oneline"><img src="../../img/service_order/01.png"/>&nbsp;&nbsp;工单编号：{{item.nurseNo}}</p>
+							<p class="dianhua font1-2 colorC LH2 PL10"><img src="../../img/pinggu_sq/05.png"/>&nbsp;&nbsp;上门服务时间：{{item.checkInTime}}</p>
+							<div class="bord"></div>
+							<div class="">
+								<!--<button class="tel fl PB5 PT5 PL20 PR20 MT10 MB10 ML15 radius5P" @click="tcshow=true;shownum=3">评价</button>-->
+								<button class="chakan fr PB5 PT5 PL20 PR20 MT10 MB10 MR15 radius5P" @click="openurl(3,item)">查看</button>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<p class="textC LH2">{{loading}}</p>
+			</div>
+			<!--弹窗-->
+			<div class="tanchang width100 height100" v-if="tcshow">
+				<div class="center4 width90 radius10P positionR" v-if="shownum == 3">
+					<img class="headimg radius50" src="../../img/pinggu_sq/head-img.jpg"/>
+					<img class="headimgbg" src="../../img/pinggu_sq/110.png"/>
+					<div class="top width95 Mauto"></div>
+					<div class="jianjie font1-2 PL20 LH1-5 color6">
+						<p class="font1-4 PB10">服务详情：</p>
+						<p>服务人员：{{pingjia_response.nurseName}}  工号：{{pingjia_response.nurseNo}}</p>
+						<p>服务地点：{{user.address}}</p>
+						<p>签到时间：{{pingjia_response.checkInTime}}</p>
+						<p>签出时间：{{pingjia_response.checkOutTime}}</p>
+						<p>工单编号：{{pingjia_response.gdId}}</p>
+						<p class="font1-4">服务评价：</p>
+						<ul class="overflowH PT10">
+							<li v-for="n in 5" class="fl PL20" @click="pingjiadj(n)">
+								<img src="../../img/pinggu_sq/112.png" v-if="level >= n"/>
+								<img src="../../img/pinggu_sq/113.png" v-else/>
+							</li>
+						</ul>
+						<p class="font1-4 PB20">评价内容</p>
+						
+					</div>
+					<div class="neirong width80 font1-2 Mauto radius5P">
+						<textarea class="width100 height100" name="" rows="" cols=""></textarea>
+					</div>
+					<div class="but width80 colorF radius10P LH3 textC Mauto font1-4" @click="tcshow=false">确定</div>
+				</div>
+				<div class="cancel width70 radius10P overflowH" v-else-if="shownum == 2">
+					<div class="textC PT20 PB10"><img src="../../img/service_order/02.png"/></div>
+					<div class="textC font1-4 color6 PB20">是否取消订单</div>
+					<div class="colorF font1-2 textC LH3">
+						<div class="fl width50" @click="tcshow=false;shownum=0">
+							不取消
+						</div>
+						<div class="fr width50" @click="cancelorder">
+							取消订单
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/service_order/list.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

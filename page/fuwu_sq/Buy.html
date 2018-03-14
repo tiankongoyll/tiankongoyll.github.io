@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>购买服务</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css" />
+    	<link rel="stylesheet" href="../../css/mui.picker.min.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/fuwu_sq/Buy.css"/>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui.picker.min.js"></script>
+		<script src="../../js/jquery-1.7.min.js"></script>
+	</head>
+	<body>
+		<header class="positionR colorF height7">
+			<img  src="../../img/pinggu_sq/03.png"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">购买服务</div>
+		</header>
+		<section class="address">
+			<h3><span class="name">郑阿陆</span><span class="sex">女士</span><span class="tel">1386812281</span></h3>
+			<p class="useraddress">烟台市莱山区街道123号<!--<img src="../../img/fuwu_sq/fuwu-index/narrow2.png" alt="" />--></p>
+		</section>
+		<img class="line" src="../../img/fuwu_sq/fuwu-index/line.png" alt="" />
+		<section class="cont">
+			<div class="left">
+				<img class="mui-media-object mui-pull-left" src="../../img/fuwu_sq/fuwu-index/zs-1.png">
+			</div>
+			<div class="right">
+				<p class="tname">【肌肉注射和皮下及皮内注射】安全卫生,快速无痛</p>
+				<p class="price">自付:<i>￥</i><span id="price">30.00</span><i>/次</i> | 医保:<i>￥</i><span id="priceyibao">1.00</span><span class="bz">(医保标准)</span></p>
+			</div>
+		</section>
+		<div class="driver"></div>
+		<div class="number">
+			<span>购买数量</span>
+			<div class="mui-numbox" data-numbox-min='0' data-numbox-max='9'>
+				<button id="remove" class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+				<input id="test" class="mui-input-numbox" type="number" value="1" readonly="readonly"/>
+				<button id="add" class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+			</div>
+		</div>
+		<p class="Tit"><span>*</span>选择每次预约服务时间</p>
+		<div class="time" style="padding-bottom: 70px;">
+			<ul id="allList" class="mui-table-view">
+				<li class="mui-table-view-cell btn " id="list_1"  data-options='{}' >
+					<a class="mui-navigate-right">预约服务时间<div id='result_1' class="ui-alert">未选择</div>
+					</a>
+				</li>
+				
+				<!--<li class="mui-table-view-cell btn "  data-options='{}' >
+					<a class="mui-navigate-right">
+						预约服务时间
+						<div id='result_2' class="ui-alert">未选择</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell btn "  data-options='{}' >
+					<a class="mui-navigate-right">
+						预约服务时间
+						<div id='result_3' class="ui-alert">未选择</div>
+					</a>
+				</li>-->
+			</ul>
+		</div>
+		<bottom>
+			<button class="submit"><img src="../../img/fuwu_sq/fuwu-index/xiadan.png" alt="" />立即下单</button>
+		</bottom>
+		<div class="bg"></div>
+		<div class="model">
+			<img src="../../img/fuwu_sq/fuwu-index/aaa.png" alt="" />
+		</div>
+		<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/fuwu_sq/buy.js" type="text/javascript" charset="utf-8"></script>
+		<!--<div class="allcommomn_backdrop textC radius10P"><img class="height3R" src="../../img/home/loading.gif" onerror="this.src='img/home/loading.gif'"></div>-->
+	</body>
+</html>
+

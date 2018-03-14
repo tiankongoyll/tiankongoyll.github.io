@@ -6,9 +6,6 @@ html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img {
 fieldset,img {
     border: 0
 }
-img {
-    display: block
-}
 address,caption,cite,code,dfn,th,var {
     font-style: normal;
     font-weight: normal
@@ -19,7 +16,7 @@ ul,ol {
 input {
     padding-top: 0;
     padding-bottom: 0;
-    font-family: "SimSun","宋体"
+    font-family: "微软雅黑","宋体"
 }
 input::-moz-focus-inner {
     border: 0;
@@ -28,6 +25,7 @@ input::-moz-focus-inner {
 select,input {
     vertical-align: middle
 }
+a{text-decoration:none}
 select,input,textarea {
     font-size: 12px;
     margin: 0
@@ -42,22 +40,121 @@ textarea {
 table {
     border-collapse: collapse
 }
-/**************/
-body{
-	background-color: #f7f7f7;
+/**********************/
+html,body{
+	width: 100%;
+	height: 100%;
+    background: #f6f9fe;
+    font-size: 12px;
 }
-
+@media screen and (max-width: 320px) {
+   html{font-size: 10px;}
+}
+@media screen and (min-width: 321px) and (max-width: 413px) {
+    html{font-size: 12px;}
+}
+@media screen and (min-width: 414px) and (max-width: 639px) {
+    html{font-size: 14px;}
+}
+@media screen and (min-width: 640px) {
+    html{font-size: 16px;}
+}
+/******************头部样式********************/
+header {
+  background: #698af3; 
+  }
+header img {
+    height: 1.5rem;
+    position: absolute;
+    top: 30%;
+    left: 20px; 
+    }
+/***************单行显示****************/
+.oneline{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.twoline{
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+/****************背景颜色********************/
+.backgroundF{
+	background: #FFFFFF;
+}
+/*******************loading图标*************************/
+.allcommomn_backdrop{
+	position: fixed;
+	z-index: 100;
+	height: 9rem;
+	width: 9rem;
+	top:50%;
+	left:50%;
+	background: rgba(0,0,0,0.7);
+	margin-left: -4.5rem;
+    margin-top: -3rem;
+}
+.allcommomn_backdrop img{
+	padding: 3rem;
+	-webkit-box-sizing:content-box;
+}
+/********************消息弹框***********************/
+.log_message{
+	position: absolute;
+	top:70%;
+	left: 50%;
+	opacity: 0;
+	-webkit-transform: translate3d(-50%,-50%,0) scale(1);
+    transform: translate3d(-50%,-50%,0) scale(1);
+    padding: 0 10px;
+    background: #323232;
+    color: #FFFFFF;
+    animation:mymove 3s;
+	-webkit-animation:mymove 3s; /*Safari and Chrome*/
+	}
+	
+	@keyframes mymove
+	{
+	0%   {opacity: 0;}
+	25%  {opacity: 1;}
+	50%  {opacity: 1;}
+	100% {opacity: 0;}
+	}
+	
+	@-webkit-keyframes mymove /*Safari and Chrome*/
+	{
+	0%   {opacity: 0;}
+	25%  {opacity: 1;}
+	50%  {opacity: 1;}
+	100% {opacity: 0;}
+	}
+	
+/***************字体颜色********************/
+.colorF{
+	color: #FFFFFF;
+}
+.colorFB{
+	color:#fffb00;
+}
+.colord3{
+	color:#d3dcff;
+}
+.colord9{
+	color:#999;
+}
+.colorC{
+	color:#999;
+}
+.color6{
+	color:#666;
+}
 /****************行内显示******************/
-.inlineB {
-	display: inline-block;
- *display: inline;
-	zoom: 1;
-}
-.inlineBUl li {
-	display: inline-block;
- 	*display: inline;
-	zoom: 1;
-} 
+
 .fl {
 	float: left;
 }
@@ -73,12 +170,56 @@ body{
 .textC {
 	text-align: center;
 }
-.blockC {
-	margin-left: auto;
-	margin-right: auto;
+.verticlM{
+	vertical-align:middle;
+}
+.LH10{
+	line-height: 10px;
+}
+.LH15{
+	line-height: 15px;
+}
+.LH20{
+	line-height: 20px;
+}
+.LH25{
+	line-height: 25px;
+}
+.LH30{
+	line-height: 30px;
+}
+.LH35{
+	line-height: 35px;
+}
+.LH40{
+	line-height: 40px;
+}
+.LH45{
+	line-height: 45px;
+}
+.LH50{
+	line-height: 50px;
+}
+.LH55{
+	line-height: 55px;
 }
 .LH60{
 	line-height: 60px;
+}
+.LH1-5{
+	line-height: 150%;
+}
+.LH2{
+	line-height: 200%;
+}
+.LH2-5{
+	line-height: 250%;
+}
+.LH3{
+	line-height: 300%;
+}
+.LH4{
+	line-height: 400%;
 }
 /*****************间距***********************/
 .Mauto{
@@ -90,26 +231,420 @@ body{
 .none {
 	display:none;
 }
+.PT5{
+	padding-top: 5px;
+}
+.PT10{
+	padding-top: 10px;
+}
+.PT15{
+	padding-top: 15px;
+}
+.PT20{
+	padding-top: 20px;
+}
+.PT30{
+	padding-top: 30px;
+}
+.PT40{
+	padding-top: 40px;
+}
+.PT50{
+	padding-top: 50px;
+}
+.PT60{
+	padding-top: 60px;
+}
+.PT80{
+	padding-top: 80px;
+}
+.PT100{
+	padding-top: 100px;
+}
+.PB5{
+	padding-bottom: 5px;
+}
+.PB10{
+	padding-bottom: 10px;
+}
+.PB20{
+	padding-bottom: 20px;
+}
+.PB30{
+	padding-bottom: 30px;
+}
+.PB40{
+	padding-bottom: 40px;
+}
+.PL10{
+	padding-left: 10px;
+}
+.PL20{
+	padding-left: 20px;
+}
+.PL30{
+	padding-left: 30px;
+}
+.PL40{
+	padding-left: 40px;
+}
+.PL50{
+	padding-left: 50px;
+}
+.PL60{
+	padding-left: 60px;
+}
+.PL70{
+	padding-left: 70px;
+}
+.PR10{
+	padding-right: 10px;
+}
+.PR20{
+	padding-right: 20px;
+}
+.PR30{
+	padding-right: 30px;
+}
+.PR40{
+	padding-right: 40px;
+}
+.PR60{
+	padding-right: 60px;
+}
+.MT5{
+	margin-top:5px ;
+}
+.MT10{
+	margin-top:10px ;
+}
+.MT20{
+	margin-top:20px ;
+}
+.MT30{
+	margin-top:30px ;
+}
+.MT40{
+	margin-top:40px ;
+}
+.MT50{
+	margin-top: 50px;
+}
+.MT60{
+	margin-top: 60px;
+}
 .MT120{
 	margin-top: 120px;
 }
 .ML10{
 	margin-left: 10px;
 }
+.ML15{
+	margin-left: 15px;
+}
+.ML20{
+	margin-left: 20px;
+}
+.ML25{
+	margin-left: 25px;
+}
 .ML30{
 	margin-left: 30px;
 	}
+.ML35{
+    margin-left: 35px;
+}
+.ML40{
+	margin-left: 40px;
+}
+.ML50{
+	margin-left: 50px;
+}
+.ML60{
+	margin-left: 60px;
+}
 .MR5{
 	margin-right: 5px;
+}
+.MR15{
+	margin-right: 15px;
+}
+.MR20{
+	margin-right: 20px;
 }
 .MR30{
 	margin-right: 30px;
 }
-/******************宽度************************/
-.withm{
-	width: 690px;
+.MR40{
+	margin-right: 40px;
 }
+.MR50{
+	margin-right: 50px;
+}
+.MR60{
+	margin-right: 60px;
+}
+.MB10{
+	margin-bottom: 10px;
+}
+.MB20{
+	margin-bottom: 20px;
+}
+.MB30{
+	margin-bottom: 30px;
+}
+.MB40{
+	margin-bottom: 40px;
+}
+.MB60{
+	margin-bottom: 60px;
+}
+
+/******************border-radius************************/
+.radius5P{
+	border-radius:5px ;
+}
+.radius10P{
+	border-radius:10px ;
+}
+.radius50{
+	border-radius:50% ;
+}
+/************************************/
+.overflowH{
+	overflow: hidden;
+}
+.overflowA{
+	overflow: auto;
+}
+/***********字体大小*************/
+.font1{
+	font-size: 1rem;
+}
+.font1-2{
+	font-size: 1.2rem;
+}
+.font1-4{
+	font-size: 1.4rem;
+}
+.font1-6{
+	font-size: 1.6rem;
+}
+.font1-8{
+	font-size: 1.8rem;
+}
+.font2{
+	font-size: 2rem;
+}
+.font2-2{
+	font-size: 2.2rem;
+}
+.font2-4{
+	font-size: 2.4rem;
+}
+/*显示隐藏*/
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+/**/
+.positionR{
+	position: relative;
+}
+/******************宽度************************/
 .width100 {
 	width: 100%;
 }
+.width95 {
+	width: 95%;
+}
+.width90 {
+	width: 90%;
+}
+.width85 {
+	width: 85%;
+}
+.width80 {
+	width: 80%;
+}
+.width75 {
+	width: 75%;
+}
+.width70 {
+	width: 70%;
+}
+.width65 {
+	width: 65%;
+}
+.width60 {
+	width: 60%;
+}
+.width55 {
+	width: 55%;
+}
+.width50 {
+	width: 50%;
+}
+.width49 {
+	width: 49%;
+}
 
+.width47 {
+	width: 47%;
+}
+.width46 {
+	width: 46%;
+}
+.width45 {
+	width: 45%;
+}
+.width40 {
+	width: 40%;
+}
+.width44 {
+	width: 44%;
+}
+.width38 {
+	width: 38%;
+}
+.width37 {
+	width: 37%;
+}
+.width35 {
+	width: 35%;
+}
+.width33_3 {
+	width: 33.3%;
+}
+.width30 {
+	width: 30%;
+}
+.width28 {
+	width: 28%;
+}
+.width25 {
+	width: 25%;
+}
+.width24 {
+	width: 24%;
+}
+.width23 {
+	width: 23%;
+}
+.width22 {
+	width: 22%;
+}
+.width21 {
+	width: 21%;
+}
+.width20 {
+	width: 20%;
+}
+.width15 {
+	width: 15%;
+}
+.width10 {
+	width: 10%;
+}
+.width5 {
+	width: 5%;
+}
+.height100{
+	height: 100%;
+}
+.height5{
+	height: 5%;
+}
+.height6{
+	height: 6%;
+}
+.height7{
+	height: 7%;
+}
+.height8{
+	height: 8%;
+}
+.height9{
+	height: 9%;
+}
+.height10{
+	height: 10%;
+}
+.height10p{
+	height: 10px;
+}
+.height20{
+	height: 20%;
+}
+.height30{
+	height: 30%;
+}
+.height40{
+	height: 40%;
+}
+.height45{
+	height: 45%;
+}
+.height50{
+	height: 50%;
+}
+.height60{
+	height: 60%;
+}
+.height70{
+	height: 70%;
+}
+.height80{
+	height: 80%;
+}
+.height86{
+	height: 86%;
+}
+.height90{
+	height: 90%;
+}
+.height1R{
+	height: 1rem;
+}
+.height1-2R{
+	height: 1.2rem;
+}
+.height1-4R{
+	height: 1.4rem;
+}
+.height1-6R{
+	height: 1.6rem;
+}
+.height1-8R{
+	height: 1.8rem;
+}
+.height2R{
+	height: 2rem;
+}
+.height2-4R{
+	height: 2.4rem;
+}
+.height2-8R{
+	height: 2.8rem;
+}
+.height3R{
+	height: 3rem;
+}
+.height3-2R{
+	height: 3.2rem;
+}
+.height3-6R{
+	height: 3.6rem;
+}
+.height4R{
+	height: 4rem;
+}
+.height5R{
+	height: 5rem;
+}
+.height6R{
+	height: 6rem;
+}

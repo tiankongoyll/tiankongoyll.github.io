@@ -1,0 +1,24 @@
+@import url("../common.css");
+#main .top {
+  height: 12rem;
+  background: url(../../img/pinggu_sq/001.jpg) no-repeat; }
+  #main .top img {
+    width: 5rem;
+    margin-top: 3rem;
+    margin-left: 2rem; }
+  #main .top div {
+    padding-top: 4rem; }
+#main .dizhi {
+  background: #FFFFFF; }
+  #main .dizhi p {
+    border-bottom: solid 1px #e5e8ea; }
+    #main .dizhi p img {
+      height: 1.4rem; }
+#main .xuzhi .yizhi img {
+  height: 1.8rem; }
+#main .but {
+  height: 50px;
+  background: #6eb3ff;
+  line-height: 50px; }
+  #main .but img {
+    height: 2rem; }

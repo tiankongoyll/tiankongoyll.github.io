@@ -1,0 +1,43 @@
+@import url("../common.css");
+#main .list li {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px #e6eaf2; }
+  #main .list li .top {
+    background: #f6f8ff;
+    color: #808387; }
+  #main .list li .chenter .headimg {
+    width: 3rem;
+    vertical-align: middle; }
+  #main .list li .chenter .xingbie {
+    width: 1.4rem;
+    vertical-align: middle; }
+  #main .list li .chenter .dianhua img {
+    width: 1.2rem; }
+  #main .list li .chenter .bord {
+    border-bottom: dotted 2px #CCCCCC; }
+  #main .list li .chenter .chakan {
+    background: none;
+    border: solid 1px #009cff;
+    outline: none;
+    color: #44b6ff; }
+  #main .list li .chenter .yiping {
+    background: #d9dade;
+    color: #FFFFFF;
+    border: none;
+    outline: none; }
+  #main .list li .chenter .quping {
+    background: #6fb2ff;
+    color: #FFFFFF;
+    border: none;
+    outline: none; }
+#main .nolist img {
+  width: 9rem; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #6eb3ff; }
+  footer img {
+    vertical-align: middle;
+    width: 2rem; }

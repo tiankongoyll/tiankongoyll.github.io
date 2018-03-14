@@ -1,0 +1,77 @@
+body {
+	background: #f6f9fe!important;
+	font-family: "苹方"!important;
+}
+p{
+	margin-bottom: 0;
+}
+header {
+	background: #698af3;
+}
+header img {
+	height: 1.5rem;
+	position: absolute;
+	top: 30%;
+	left: 10px;
+}
+.mui-input-row label{
+	text-align: justify; 
+	font-size: 1.4rem;
+	line-height: 5rem;
+	padding: 0 15px;
+		font-family: "苹方"!important;
+}
+.mui-input-row input{
+	padding: 2.5rem 15px;
+	font-size: 1.3rem;
+	font-family: "苹方"!important;
+	
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #bfbdbd; opacity:1; 
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #bfbdbd;opacity:1;
+}
+
+input:-ms-input-placeholder{
+    color: #bfbdbd;opacity:1;
+}
+
+input::-webkit-input-placeholder{
+    color: #bfbdbd;opacity:1;
+}
+.mui-input-row label>span{
+	 display: inline-block /* Opera */; padding-left: 100%;
+}
+.mui-input-group .mui-input-row{
+	height: 5rem;
+}
+bottom{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 4rem;
+}
+bottom button{
+	outline: none;
+	font-family: "è‹¹æ–¹";
+	width: 90%;
+	height: 3.5rem;
+	font-size: 1.5rem;
+	color: #fff;
+	background: #6eb3ff;
+	border: 1px solid #6eb3ff;
+	box-shadow: 0 0 10px 0px #6eb3ff;
+	border-radius: 5px;
+	font-family: "苹方";
+}
+.mui-input-group .mui-input-row:after{
+	right: 15px;
+}
+.add_pinker{
+	background: url(../../img/fuwu_sq/fuwu-index/narrow3.png) no-repeat;
+	background-position: 95% center;
+	background-size: 10px;
+}

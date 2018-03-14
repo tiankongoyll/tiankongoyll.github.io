@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>服务申请</title>
+		<link rel="stylesheet" href="../../css/common.css" />
+		<link rel="stylesheet" href="../../css/fuwu_sq/fuwu_index.css" />
+	</head>
+	<body>
+		<header class="positionR colorF height7">
+			<img src="../../img/pinggu_sq/03.png"/>
+			<div class="height30"></div>
+			<div class="textC font1-4">上门护理</div>
+		</header>
+		<nav><img src="../../img/fuwu_sq/fuwu-index/banner.png" alt="" /></nav>
+		<main id="main" class="none">
+			<ul>
+				<li @click="openurl(item)" v-for="item in response">
+					<div class="left"><img :src="item.serviceSmallIcon||'../../img/fuwu_sq/fuwu-index/fuwu-1.png'" alt="" /></div>
+					<div class="right">
+						<h1 class="oneline" style="color: #323232">{{item.serviceName}}</h1>
+						<p>{{item.serviceGeneral||'皮下及皮内注射'}}</p>
+					</div>
+				</li>
+				<!--<li onclick="window.location.href='zhushe.html'">
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-1.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color1">肌肉注射</h1>
+						<p>皮下及皮内注射</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-2.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color2">静脉采血</h1>
+						<p>血标本的采集</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-3.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color3">物理降温</h1>
+						<p>一般性物理降温</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-4.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color4">口腔护理</h1>
+						<p>建立健康档案</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-5.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color5">导尿（女）</h1>
+						<p>专业细心的服务</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-6.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color6">糖尿病防治</h1>
+						<p>有效预防慢性病</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-7.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color7">吸氧帮助</h1>
+						<p>氧气吸入与宣教</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-8.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color8">血糖测量</h1>
+						<p>实时监测您的身体</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-9.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color9">会阴擦洗</h1>
+						<p>会阴及肛门清理</p>
+					</div>
+				</li>
+				<li>
+					<div class="left"><img src="../../img/fuwu_sq/fuwu-index/fuwu-10.png" alt="" /></div>
+					<div class="right">
+						<h1 class="color10">膀胱冲洗</h1>
+						<p>降低炎症的发生</p>
+					</div>
+				</li>
+				-->
+			</ul>
+		</main>
+	</body>
+</html>
+<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-1.11.3.min.js"></script>
+<script src="../../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function(){
+		$("header img").click(function(){
+			window.location.href="../../index.html"
+		})
+	})
+	var main = new Vue({
+		el: '#main',
+		data: {
+			response:[],
+		},
+		methods:{
+			openurl:function(item){
+				sessionStorage.zhushe=JSON.stringify(item);
+				window.location.href='zhushe.html';
+			}
+		}
+	})
+	ajaxPost(
+		Url.FWAPPLY_LIST, 
+		{},
+		function(data) {
+			console.log(data)
+			if(data.status == '1'){
+				main.response=data.response;
+			}
+		}
+	)
+	document.getElementById("main").setAttribute("style","display: block;")
+</script>
